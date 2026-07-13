@@ -6,7 +6,7 @@ panel: b
 tier: verified
 confidence: high
 source_url: https://doi.org/10.1186/s12985-017-0683-y
-crop: crops/effects-of-calcitriol-1-25-dihydroxy-vitamin-d3-fig5b-infected-control.png
+crop: crops/effects-of-calcitrio-fig5b-infected-control.png
 ---
 
 # Fig5b: Infected control
@@ -32,4 +32,4 @@ Infected control peaks at 29 fold at day 2.
 
 ## Audit crop
 
-![crop](crops/effects-of-calcitriol-1-25-dihydroxy-vitamin-d3-fig5b-infected-control.png)
+![crop](crops/effects-of-calcitrio-fig5b-infected-control.png)

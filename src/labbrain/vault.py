@@ -68,11 +68,12 @@ def write_record(record: PanelRecord, vault_dir: str | Path) -> Path:
     crops_dir = papers_dir / "crops"
     crops_dir.mkdir(parents=True, exist_ok=True)
 
-    paper_slug = _slug(record.provenance.title, limit=48)
+    # Keep the stem short: over-long paths break `git clone` + file I/O on Windows (MAX_PATH).
+    paper_slug = _slug(record.provenance.title, limit=20)
     panel_slug = _slug(
-        f"{record.provenance.figure_id}{record.provenance.panel_id}", limit=24
+        f"{record.provenance.figure_id}{record.provenance.panel_id}", limit=10
     )
-    series_slug = _slug(record.extraction.series_label, limit=40)
+    series_slug = _slug(record.extraction.series_label, limit=16)
     stem = f"{paper_slug}-{panel_slug}-{series_slug}"
     record_path = papers_dir / f"{stem}.md"
 

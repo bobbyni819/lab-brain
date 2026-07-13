@@ -6,7 +6,7 @@ panel: a
 tier: needs_review
 confidence: high
 source_url: https://doi.org/10.1186/s12985-017-0683-y
-crop: crops/effects-of-calcitriol-1-25-dihydroxy-vitamin-d3-fig5a-calcitriol-treated-infected.png
+crop: crops/effects-of-calcitrio-fig5a-calcitriol-treat.png
 ---
 
 # Fig5a: Calcitriol-treated infected
@@ -35,4 +35,4 @@ Calcitriol-treated infected peaks at 500 fold at day 4.
 
 ## Audit crop
 
-![crop](crops/effects-of-calcitriol-1-25-dihydroxy-vitamin-d3-fig5a-calcitriol-treated-infected.png)
+![crop](crops/effects-of-calcitrio-fig5a-calcitriol-treat.png)
