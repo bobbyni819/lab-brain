@@ -23,7 +23,7 @@ _EPOCH_DATE = "1970-01-01"
 _AREA_EXTENSIONS = {
     "code": {"py", "js", "ts", "java", "c", "cpp", "h", "go", "rs", "rb", "sh"},
     "notebook": {"ipynb"},
-    "doc": {"md", "txt", "docx", "rtf", "odt"},
+    "doc": {"md", "txt", "docx", "rtf", "odt", "pdf"},
     "slide": {"pptx", "key"},
     "sheet": {"xlsx", "xls", "csv", "tsv"},
     "figure": {"png", "jpg", "jpeg", "gif", "svg", "tif", "tiff"},

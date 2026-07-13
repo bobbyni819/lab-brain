@@ -147,7 +147,7 @@ lab-brain/
 ## Design docs
 - **[`framework/README.md`](./framework/README.md)** — start here: the conventions + the routing map.
 - **[`docs/architecture.md`](./docs/architecture.md)** — the three layers, the swarm, verification.
-- **[`SUBMISSION.md`](./SUBMISSION.md)** — the 100–200-word summary + how it maps to the rubric.
+- **[`CONTRIBUTING.md`](./CONTRIBUTING.md)** — how to run it + the conventions applied to this repo.
 
 ## License
 MIT — see [LICENSE](./LICENSE). Uses only open-access, appropriately-licensed paper data.

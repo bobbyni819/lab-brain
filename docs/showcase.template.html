@@ -219,10 +219,10 @@ footer .wrap{display:flex; justify-content:space-between; gap:20px; flex-wrap:wr
   <div class="brand"><span class="dot" aria-hidden="true"></span> Lab Brain</div>
   <nav class="nav" aria-label="sections">
     <a href="#problem">Problem</a>
+    <a href="#ingest">Ingest</a>
     <a href="#framework">Framework</a>
     <a href="#collab">Mentorship</a>
     <a href="#figures">Figures</a>
-    <a href="#swarm">Swarm</a>
     <a href="#pipeline">Pipeline</a>
     <a href="#adopt">In the lab</a>
     <a href="#install">Install</a>
@@ -296,6 +296,30 @@ footer .wrap{display:flex; justify-content:space-between; gap:20px; flex-wrap:wr
       <p>Peers and mentees contribute concurrently through a shared <b>framework of conventions</b> —
         where things go, how figures are made, how mentees report up. Additive, no clobbering.
         <b>That framework is the hero.</b></p></div>
+  </div>
+</div></section>
+
+<!-- ===================== ingestion (interactive) ===================== -->
+<section id="ingest"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="eyebrow">The core · your mess → your brain</div>
+    <h2>Point it at a lab's files. It reads everything, and files each where it belongs.</h2>
+    <p>Code, slides, docs, grants, data, papers — however cryptic or disorganized. A cheap
+      <b>structural sort</b> (runnable today, no LLM) buckets every file, catches duplicates, and drops
+      non-science; then a <b>swarm</b> of area-specialist agents reads each file in full and routes what
+      it learns into the shared KB. <b>Click a file from a real messy lab folder.</b></p>
+  </div>
+  <div class="reveal" style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;font-family:var(--mono);font-size:12.5px;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;box-shadow:var(--shadow);margin-bottom:22px">
+    <b class="tnum" style="color:var(--accent-ink);font-size:16px">12</b> files
+    <span style="color:var(--faint)">→</span> <b style="color:var(--ink)">8</b> content areas
+    <span style="color:var(--faint)">·</span> <b style="color:var(--ink)">1</b> duplicate caught
+    <span style="color:var(--faint)">·</span> <b style="color:var(--ink)">venture folder</b> excluded
+    <span style="color:var(--faint)">·</span> <b style="color:var(--ink)">temp files</b> skipped
+    <span style="margin-left:auto;color:var(--faint);font-size:11px">a real run of <b>python -m labbrain.lab_scan</b></span>
+  </div>
+  <div class="demo reveal">
+    <div class="panelpick" id="ingestpick" role="tablist" aria-label="a file in the messy dump"></div>
+    <div class="stage" id="ingeststage"></div>
   </div>
 </div></section>
 
@@ -385,15 +409,27 @@ footer .wrap{display:flex; justify-content:space-between; gap:20px; flex-wrap:wr
 <!-- ===================== figure reading (interactive) ===================== -->
 <section id="figures"><div class="wrap">
   <div class="sec-head reveal">
-    <div class="eyebrow">The showcased capability</div>
-    <h2>Read the figure. Verify it honestly. Keep the crop.</h2>
-    <p>Papers hide their real quantities in figures. Lab Brain reads panels blind, then a deterministic
-      two-tier gate marks each value <b style="color:var(--verified)">verified</b> or
-      <b style="color:var(--review)">needs-review</b> — never faking confidence. Pick a panel.</p>
+    <div class="eyebrow">One showcased capability</div>
+    <h2>It even reads the figures — and stays honest.</h2>
+    <p>Reading a paper doesn't stop at the text. Lab Brain crops each figure panel and pulls the
+      numbers out — then flags anything it can't stand behind.</p>
   </div>
-  <div class="demo reveal">
-    <div class="panelpick" id="panelpick" role="tablist" aria-label="figure panels"></div>
-    <div class="stage" id="stage"></div>
+  <div class="stage reveal">
+    <div class="stage-top">
+      <img src="__IMG_TNFA__" alt="TNF-α panel crop, Fig 5b" />
+      <div class="meta">
+        <div class="verdict"><span class="badge v">✓ VERIFIED</span><span class="kv">confidence <b>high</b></span></div>
+        <h3>TNF-α = 29-fold at day 2</h3>
+        <div class="kv">a single cropped bar-chart panel · Gui 2017, Fig 5b · CC-BY</div>
+        <p style="color:var(--muted);margin-top:12px;font-size:15px"><b>This number is stated nowhere in
+          the paper's text</b> — it exists only in the figure. Reading the text doesn't give it to you; reading the panel does.</p>
+      </div>
+    </div>
+    <div class="note"><span class="lab">also caught, honestly</span>
+      IL-6 reads ~500-fold but the paper's text says <b>"5.6 fold"</b> → the clash is flagged <b>needs-review</b>,
+      not silently trusted. A figure with a broken axis is declined rather than guessed. The panel crop is
+      kept as provenance for every value.</div>
+    <div class="prov">provenance · DOI 10.1186/s12985-017-0683-y · CC-BY-4.0 · crop retained</div>
   </div>
 </div></section>
 
@@ -508,6 +544,61 @@ footer .wrap{display:flex; justify-content:space-between; gap:20px; flex-wrap:wr
   range.addEventListener('input',render); render();
 })();
 
+/* ---------- ingestion (mess -> brain) ---------- */
+(function(){
+  var FILES=[
+    {n:"code/20260210_flu_ABM_BN.py", a:"code",
+     reads:"imports, the files it reads/writes, entrypoint, tests (via the code AST)",
+     ex:"reads raw_counts.csv → writes results/fit.json; entrypoint run()",
+     dest:"a code record in the registry + a code→data edge in the provenance graph"},
+    {n:"20251120_kickoff_JWH.pptx", a:"slides",
+     reads:"every slide's text + speaker notes, and renders each figure",
+     ex:"the project's aims + timeline, and any numeric claims drawn in the slides",
+     dest:"a slide record + the claims into Wiki/Concepts + methods into catalogs/methods"},
+    {n:"R01_specific_aims_v3.docx", a:"grant",
+     reads:"the document's sections, and the aims verbatim",
+     ex:"specific aims, funder, status (this is draft v3)",
+     dest:"catalogs/grants.md, linked to the project it funds"},
+    {n:"raw_counts.csv", a:"data",
+     reads:"the schema — columns, shape, units, headers",
+     ex:"columns cytokine / day / fold_change; and which code consumes it",
+     dest:"catalogs/datasets.md, linked to the .py that reads it"},
+    {n:"1002732.pdf", a:"paper · cryptic name",
+     reads:"the full text AND every figure panel",
+     ex:"resolves the cryptic filename to “Gui 2017 · calcitriol × H9N2”, and pulls figure-only values (TNF-α = 29-fold)",
+     dest:"Sources/Papers/ + a cited Wiki/Concepts page + a FIGURE_FINDINGS entry"},
+    {n:"_processed/raw_counts.csv", a:"duplicate",
+     reads:"a cheap content hash",
+     ex:"byte-identical to raw_counts.csv — a stray copy",
+     dest:"flagged as a duplicate; one canonical copy is kept, not two"},
+    {n:"DCP - Deal Sourcing/…xlsx", a:"not science",
+     reads:"— the profile's domain rule matches its path",
+     ex:"venture material, not lab science",
+     dest:"excluded from the science KB entirely (a one-line rule in lab-profile.yaml)"}
+  ];
+  var pick=document.getElementById('ingestpick'), stage=document.getElementById('ingeststage');
+  if(pick&&stage){
+    pick.innerHTML=FILES.map(function(f,i){
+      return '<button class="pk" role="tab" data-i="'+i+'" aria-selected="'+(i===0)+'">'+
+        '<div style="min-width:0"><div class="pt mono" style="font-size:12.5px;overflow:hidden;text-overflow:ellipsis">'+f.n+'</div></div>'+
+        '<span class="badge" style="background:var(--surface-2);color:var(--muted)">'+f.a+'</span></button>';
+    }).join('');
+    var paintF=function(i){
+      var f=FILES[i];
+      stage.innerHTML=
+        '<div class="kv" style="text-transform:uppercase;letter-spacing:.06em;font-size:11px">reads</div>'+
+        '<p style="font-size:15px;color:var(--ink);margin:2px 0 14px">'+f.reads+'</p>'+
+        '<div class="kv" style="text-transform:uppercase;letter-spacing:.06em;font-size:11px">extracts</div>'+
+        '<p style="font-size:15px;color:var(--ink);margin:2px 0 16px">'+f.ex+'</p>'+
+        '<div class="verdict"><span class="badge" style="color:#fff;background:var(--accent)">→ GOES TO</span></div>'+
+        '<p style="font-family:var(--mono);font-size:13.5px;color:var(--accent-ink);margin-top:8px;line-height:1.45">'+f.dest+'</p>';
+      Array.prototype.forEach.call(pick.children,function(b,bi){b.setAttribute('aria-selected', bi===i);});
+    };
+    pick.addEventListener('click',function(e){var b=e.target.closest('.pk'); if(b)paintF(+b.dataset.i);});
+    paintF(0);
+  }
+})();
+
 /* ---------- framework routing map ---------- */
 (function(){
   var ROUTES=[
@@ -592,6 +683,7 @@ footer .wrap{display:flex; justify-content:space-between; gap:20px; flex-wrap:wr
      prov:"provenance · DOI 10.1186/s12985-017-0683-y · CC-BY-4.0 · Fig 4 · crop retained"}
   ];
   var pick=document.getElementById('panelpick'), stage=document.getElementById('stage');
+  if(!pick||!stage){return;}  // figure section trimmed to a single static crop
   pick.innerHTML=PANELS.map(function(p,i){
     return '<button class="pk" role="tab" data-i="'+i+'" aria-selected="'+(i===0)+'">'+
       '<div><div class="pid">'+p.id+'</div><div class="pt">'+p.title+'</div></div>'+
