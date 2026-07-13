@@ -1,6 +1,6 @@
 ---
 title: "Feedback — Alex, 2026-07-13"
-author: "Bobby Ni (verbal feedback, captured by the agent)"
+author: "Sam Ortiz (verbal feedback, captured by the agent)"
 date: 2026-07-13
 audience: Alex Rivera
 ---

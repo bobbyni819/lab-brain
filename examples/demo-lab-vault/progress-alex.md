@@ -11,7 +11,7 @@ updated: 2026-07-13
 ## 2026-07-13
 - Reproduced the TNF-α (5b) read: 29-fold @ day 2 — matches the reference. Verified by looking at the crop.
 - Wrote `read_panels.py` around the labbrain slice; started IL-2 (5c) — legend overlaps the bbox, flagged in questions.md.
-- Handing off: need the panel-budget decision before I finalize which cytokines to read (→ Bobby).
+- Handing off: need the panel-budget decision before I finalize which cytokines to read (→ Sam).
 
 ## 2026-07-12
 - Onboarded: read the project + where-to-find-things; set up Claude Code (16 skills).

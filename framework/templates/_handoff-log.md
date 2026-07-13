@@ -11,11 +11,11 @@ Claim shared files on the ACTIVE EDITS board before editing. Re-read before you 
 See `framework/harness-playbook.md` for the full convention.
 
 ## 🔒 ACTIVE EDITS  (claim a shared file before editing; delete your line when done)
-<!-- - 🔒 [HH:MM] @CC BN/CODE — src/foo.py — refactoring the loader -->
-<!-- - 🔒 [HH:MM] @CS FG/ANALYSIS — registry/ — indexing the flu subtree -->
+<!-- - 🔒 [HH:MM] @CC SO/CODE — src/foo.py — refactoring the loader -->
+<!-- - 🔒 [HH:MM] @CS AK/ANALYSIS — registry/ — indexing the flu subtree -->
 
 ## 🤝 OPEN HANDOFFS & DECISIONS  (→ @CS / @CC / @<person>)
 <!-- - → @CC: figure crop bboxes ready in Sources/panels-2026-07-13.md, please wire into report -->
 
 ## 📝 PROGRESS  (newest at top; `[YYYY-MM-DD HH:MM] @CS|@CC <person/lane>: <verified change>`)
-<!-- [2026-07-13 14:02] @CC BN/CODE: figure slice green — TNF-a verified, IL-6 flagged. Report written. -->
+<!-- [2026-07-13 14:02] @CC SO/CODE: figure slice green — TNF-a verified, IL-6 flagged. Report written. -->

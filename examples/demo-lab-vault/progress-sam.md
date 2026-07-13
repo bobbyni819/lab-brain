@@ -1,12 +1,12 @@
 ---
-title: "Progress — Bobby Ni"
-person: Bobby Ni
+title: "Progress — Sam Ortiz"
+person: Sam Ortiz
 role: mentor
 status: "My own worklog. Additive, newest at top."
 updated: 2026-07-13
 ---
 
-# Progress — Bobby Ni
+# Progress — Sam Ortiz
 
 ## 2026-07-13
 - Ingested Gui 2017; read + verified Fig 5a/5b; logged findings + flagged the IL-6 text↔figure discrepancy.

@@ -128,13 +128,13 @@ def test_gather_parses_git_log_and_missing_git_is_harmless(
 def test_gather_all_preserves_roster_order_and_question_ownership(tmp_path: Path) -> None:
     _build_vault(tmp_path)
     roster = [
-        {"name": "Bobby Ni", "handle": "BN", "role": "mentor"},
+        {"name": "Sam Ortiz", "handle": "SO", "role": "mentor"},
         {"name": "Alex Rivera", "handle": "AR", "role": "mentee"},
     ]
 
     records = gather_all(roster, tmp_path, since="2026-06-01")
 
-    assert [record["person"] for record in records] == ["Bobby Ni", "Alex Rivera"]
+    assert [record["person"] for record in records] == ["Sam Ortiz", "Alex Rivera"]
     assert records[0]["open_questions"] == []
     assert len(records[1]["open_questions"]) == 2
 
@@ -169,7 +169,7 @@ def test_main_filters_person_writes_output_and_reports_one_line(
         yaml.safe_dump(
             {
                 "roster": [
-                    {"name": "Bobby Ni", "handle": "BN", "role": "mentor"},
+                    {"name": "Sam Ortiz", "handle": "SO", "role": "mentor"},
                     {"name": "Alex Rivera", "handle": "AR", "role": "mentee"},
                 ]
             }

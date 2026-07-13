@@ -22,7 +22,7 @@ competing date formats before the convention was fixed.
 - **Wiki pages stay undated** (they're living references); their `updated:` frontmatter tracks
   freshness instead.
 - Many labs also carry an **incoming** convention on raw dumps (`YYYYMMDD_Topic_INITIALS`, e.g.
-  `20260210_flu_ABM_BN.pptx`) — Lab Brain's scanner parses that automatically (date-prefix +
+  `20260210_flu_ABM_SO.pptx`) — Lab Brain's scanner parses that automatically (date-prefix +
   initials → owner), so a messy incoming folder still yields clean provenance.
 
 ## Note format (every note starts here)

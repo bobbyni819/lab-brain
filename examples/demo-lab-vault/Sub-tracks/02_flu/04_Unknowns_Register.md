@@ -1,7 +1,7 @@
 ---
 title: "Unknowns Register — 02_flu (Alex)"
 type: unknowns-register
-status: "Living doc, edited by BOTH Alex and Bobby. Turn tacit knowledge into written knowledge."
+status: "Living doc, edited by BOTH Alex and Sam. Turn tacit knowledge into written knowledge."
 updated: 2026-07-13
 ---
 
@@ -16,7 +16,7 @@ updated: 2026-07-13
 - [ ] What's the right bbox for 5c (IL-2) — the legend overlaps the top-right. `[for alex]`
 
 ## Unknown knowns — the mentor's tacit knowledge, not yet written
-<!-- Bobby fills these as they come up in conversation; each moves to a Wiki page once written. -->
+<!-- Sam fills these as they come up in conversation; each moves to a Wiki page once written. -->
 - "A broken y-axis (like Fig 4) always means read the upper segment with lower confidence — flag it." `[mentor]`
 - "If the text only states one or two magnitudes, assume the rest are figure-only — that's the whole point." `[mentor]`
 

@@ -29,10 +29,10 @@ because nobody agrees on WHERE things go.** Updates, decisions, handoffs, figure
 scatter across chats, folders, and heads — and a new member takes months to learn what the lab
 already knows. "Chat with my files" tools onboard a *user*; they can't onboard a *lab*.
 
-Lab Brain is **not aspirational.** It's a generalization of the coordination practices our lab
-**runs day-to-day** — on a multi-person spatial-omics project (CODEX proteomics × MALDI-IMS
-lipidomics, human testis) and a Data+ undergraduate team, across Claude Code and Claude Science. We
-lifted the practice out and made it installable, and we're adopting this packaged version ourselves.
+Lab Brain is **not aspirational.** It's a generalization of the coordination practices a real
+multi-person lab **runs day-to-day** — a spatial-omics project and an undergraduate research team,
+across Claude Code and Claude Science. We lifted that practice out of one lab's daily workflow and
+made it installable for any lab.
 
 ## ⭐ The framework (the heart of this) — see [`framework/`](./framework/README.md)
 
@@ -67,7 +67,7 @@ grounded in the real Gui 2017 paper.
 
 ```bash
 git clone https://github.com/<you>/lab-brain && cd lab-brain
-python bootstrap.py --members "Bobby:mentor, Alex:mentee, John:pi"
+python bootstrap.py --members "Sam:mentor, Alex:mentee, Maya:pi"
 ```
 That copies the lab's skills into your `.claude/`, writes a `lab-profile.yaml` to edit, and seeds the
 shared framework structure (`START_HERE.md`, `_Log.md`, `_handoff-log.md`, `LANES.md`, a per-person

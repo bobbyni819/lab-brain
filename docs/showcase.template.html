@@ -253,7 +253,7 @@ footer .wrap{display:flex; justify-content:space-between; gap:20px; flex-wrap:wr
       <span class="chip">license · <b>MIT</b></span>
     </div>
     <div class="cli"><span class="c"># one line: your team's Claude gets the lab's skills + conventions</span><br>
-      <span class="p">$</span> git clone …/lab-brain &amp;&amp; python bootstrap.py --members "Bobby:mentor, Alex:mentee, John:pi"</div>
+      <span class="p">$</span> git clone …/lab-brain &amp;&amp; python bootstrap.py --members "Sam:mentor, Alex:mentee, Maya:pi"</div>
   </div>
   <div>
     <div class="shot">
@@ -271,7 +271,7 @@ footer .wrap{display:flex; justify-content:space-between; gap:20px; flex-wrap:wr
     <div class="eyebrow">The problem</div>
     <h2>Every lab has a mess, and a team — and tools solve for neither.</h2>
     <p>Years of data, code, decks, docs, grants and papers scatter across Box, Drive and laptops,
-      named <span class="mono">1002732.pdf</span> and <span class="mono">20260210_flu_ABM_BN.pptx</span>.
+      named <span class="mono">1002732.pdf</span> and <span class="mono">20260210_flu_ABM_SO.pptx</span>.
       A new member takes months to learn what the lab already knows. And the moment two people — or two
       AI harnesses — touch the same shared notes, work gets clobbered. "Chat with my files" onboards a
       <em>user</em>. It cannot onboard a <em>lab</em>.</p>
@@ -458,12 +458,12 @@ footer .wrap{display:flex; justify-content:space-between; gap:20px; flex-wrap:wr
 <!-- ===================== adoption ===================== -->
 <section id="adopt"><div class="wrap adopt">
   <div class="reveal">
-    <div class="eyebrow">Already in the lab</div>
-    <p class="quote">"We don't just propose this — we're onboarding our own team onto it."</p>
-    <p style="color:var(--muted); margin-top:16px; font-size:16px">The collaboration model is generalized from
-      the coordination practices the <b style="color:var(--ink)">Hickey Lab runs day-to-day</b> on a multi-person
-      spatial-omics project — CODEX spatial proteomics × MALDI-IMS lipidomics on human testis — plus a Data+
-      undergraduate team. The practice is real; Lab Brain packages it so any lab can adopt it — and we're adopting this version ourselves.</p>
+    <div class="eyebrow">Battle-tested, not aspirational</div>
+    <p class="quote">"Generalized from how a real lab already works — not invented for a pitch."</p>
+    <p style="color:var(--muted); margin-top:16px; font-size:16px">The collaboration model is lifted from the
+      <b style="color:var(--ink)">day-to-day coordination practices of a real multi-person lab</b> — a spatial-omics
+      project plus an undergraduate research team, run across Claude Science and Claude Code. Lab Brain packages
+      that practice so any lab can adopt it.</p>
   </div>
   <div class="reveal">
     <div class="card">
@@ -488,7 +488,7 @@ footer .wrap{display:flex; justify-content:space-between; gap:20px; flex-wrap:wr
   <div class="cli reveal" style="max-width:760px">
 <span class="c"># 1 · install the kit — skills into your .claude, collab structure into your KB</span><br>
 <span class="p">$</span> git clone https://github.com/&lt;you&gt;/lab-brain &amp;&amp; cd lab-brain<br>
-<span class="p">$</span> python bootstrap.py --members "Bobby:mentor, Alex:mentee, John:pi"<br><br>
+<span class="p">$</span> python bootstrap.py --members "Sam:mentor, Alex:mentee, Maya:pi"<br><br>
 <span class="c"># 2 · in Claude Code — configure, then build the shared brain</span><br>
 <span class="p">&gt;</span> /lab-init  →  /lab-scan  →  /lab-index  →  /lab-link<br>
 <span class="p">&gt;</span> /lab-ask "what datasets does the flu project use, and who owns them?"<br>
@@ -554,11 +554,11 @@ footer .wrap{display:flex; justify-content:space-between; gap:20px; flex-wrap:wr
 /* ---------- ingestion (mess -> brain) ---------- */
 (function(){
   var FILES=[
-    {n:"code/20260210_flu_ABM_BN.py", a:"code",
+    {n:"code/20260210_flu_ABM_SO.py", a:"code",
      reads:"imports, the files it reads/writes, entrypoint, tests (via the code AST)",
      ex:"reads raw_counts.csv → writes results/fit.json; entrypoint run()",
      dest:"a code record in the registry + a code→data edge in the provenance graph"},
-    {n:"20251120_kickoff_JWH.pptx", a:"slides",
+    {n:"20251120_kickoff_MR.pptx", a:"slides",
      reads:"every slide's text + speaker notes, and renders each figure",
      ex:"the project's aims + timeline, and any numeric claims drawn in the slides",
      dest:"a slide record + the claims into Wiki/Concepts + methods into catalogs/methods"},
@@ -651,13 +651,13 @@ footer .wrap{display:flex; justify-content:space-between; gap:20px; flex-wrap:wr
         ["Per-user paths","<b>resolve(key)</b> picks the right storage for whoever runs it — the #1 multi-user fix"],
         ["Reviewed as an equal","a maintainer's commits are peer contributions — no scaffolding, no digest"],
         ["No collisions","claim a lane on <b>LANES.md</b>, dated <b>Sources/</b> notes, one branch per lane"]],
-      lanes:[["@BN","figure slice","CC","active"],["@AR","flu-index","CS","active"],["@JWH","gaps audit","—","watching"]]},
+      lanes:[["@SO","figure slice","CC","active"],["@AR","flu-index","CS","active"],["@MR","gaps audit","—","watching"]]},
     B:{rows:[
         ["The loop","each round = a neutral <b>-update</b> + a structured <b>-feedback</b>, same date, kept separate"],
         ["Neutral digest","one agent per mentee: what shipped (paths, line counts) + the <b>files to spot-check</b>"],
         ["Structured feedback","the mentor's items in a fixed skeleton; <b>[Mentor]</b> tags = verbatim quotes only"],
         ["Reports up","writeup → update → feedback → a condensed line in the team-meeting note"]],
-      lanes:[["@AR","round 6","mentee","🟢 captured"],["@AL","round 4","mentee","🟡 needs feedback"],["@BN","runs check-ins","mentor","✅ closed"]]}
+      lanes:[["@AR","round 6","mentee","🟢 captured"],["@AL","round 4","mentee","🟡 needs feedback"],["@SO","runs check-ins","mentor","✅ closed"]]}
   };
   function paint(k){
     var d=DATA[k];

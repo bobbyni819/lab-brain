@@ -2,7 +2,7 @@
 title: "START HERE — 02_flu (Alex)"
 type: sub-track-entry
 person: Alex Rivera
-mentor: Bobby Ni
+mentor: Sam Ortiz
 updated: 2026-07-13
 ---
 

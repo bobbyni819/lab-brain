@@ -85,6 +85,7 @@ explicit reasons. The panel crop is retained on every record, verified or not â€
 honesty beats false certainty.
 
 ## Grounding
-The whole design is grounded in Bobby's own KB practice; see the project design notes
-(`decisions-locked` D1â€“D5, `agent-orchestration`, `deep-reading-and-quality-gates`,
-`paper-reading-design`, `multi-user-collaboration-design`) in the hackathon knowledge base.
+The whole design is generalized from the day-to-day KB and coordination practices of a real
+multi-person lab. Those conventions are codified in [`../framework/`](../framework/README.md); the
+figure-reading verification ethic lives in
+[`figures-and-findings.md`](../framework/figures-and-findings.md).

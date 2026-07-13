@@ -3,7 +3,7 @@
 ## Summary
 
 - Total files: **13**
-- Total size: **1.2 MB** (1274382 bytes)
+- Total size: **1.2 MB** (1274384 bytes)
 
 ## Counts by area
 

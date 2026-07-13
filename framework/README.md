@@ -4,10 +4,9 @@
 > lab documents, saves, hands off, makes figures, builds the storyline, and mentors, so that a team
 > (and its AI agents) all contribute to **one knowledge base** without stepping on each other.
 >
-> It is not invented for a pitch. Every convention here is generalized from a system a real lab
-> **runs day-to-day** — a spatial-omics project (CODEX proteomics × MALDI-IMS lipidomics)
-> and a Data+ undergraduate team, coordinated across Claude Code and Claude Science. We lifted the
-> practice out and made it adoptable.
+> It is not invented for a pitch. Every convention here is generalized from a system a real
+> multi-person lab **runs day-to-day** — a spatial-omics project and an undergraduate research team,
+> coordinated across Claude Code and Claude Science. We lifted the practice out and made it adoptable.
 
 ## The one idea
 A lab's knowledge doesn't get lost because people don't write things down. It gets lost because

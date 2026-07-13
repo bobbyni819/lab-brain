@@ -13,24 +13,24 @@
 # ─────────────────────────────────────────────────────────────────────────────
 
 lab:
-  name: "Hickey Lab"                 # your lab / group / project name
+  name: "Meridian Lab"                 # your lab / group / project name
   # Map initials used in filenames to real people (Lab Brain resolves ownership).
   initials_map:
-    JWH: "John Hickey"
-    BN:  "Bobby Ni"
+    MR: "Maya Rao"
+    SO:  "Sam Ortiz"
     AR:  "Alex Rivera"      # example mentee
 
 # WHERE the lab's mess lives. Multiple roots, multiple backends. `role` tells
 # Lab Brain what a root is FOR so it can weight reading effort.
 storage:
   - { root: "/mnt/box",                 backend: box,    role: "raw + docs" }
-  - { root: "G:/My Drive/Knowledge",    backend: gdrive, role: "curated KB" }
+  - { root: "~/lab-kb",    backend: gdrive, role: "curated KB" }
   - { root: "~/repos",                  backend: local,  role: "code" }
 
 # HOW your filenames encode meaning. These are regexes; edit to match your lab.
 naming:
   date_prefix: '^(\d{8})_'             # 20260619_flu_papers
-  initials_suffix: '_([A-Z]{2,4})$'    # ..._JWH
+  initials_suffix: '_([A-Z]{2,4})$'    # ..._MR
   processed_dirs: ["_processed", "processed"]
 
 # HOW to infer projects when folders lie. `infer_from` is the cheap default;
@@ -39,7 +39,7 @@ projects:
   infer_from: top_level_folder         # e.g. a Box top-level folder == a project
   aliases:
     "20260620_metabolism_papers": metabolism
-    "CODEX_MALDIIMS":             metabolism
+    "SPATIAL_OMICS_2026":             metabolism
     "20260210_Influenza_ABM":     influenza
 
 # ─── THE ROSTER — this is what powers multi-user collaboration ───────────────
@@ -50,17 +50,17 @@ projects:
 #   maintainer → a peer who owns/maintains a workstream; commits reviewed as an equal, no scaffolding
 #   mentee     → a student contributing under supervision; gets onboarding scaffold + a digest + feedback each round
 roster:
-  - { name: "John Hickey", handle: JWH, role: pi }
-  - { name: "Bobby Ni",    handle: BN,  role: mentor,
-      storage: ["/mnt/box/Bobby_Ni", "G:/My Drive/Knowledge"] }
+  - { name: "Maya Rao", handle: MR, role: pi }
+  - { name: "Sam Ortiz",    handle: SO,  role: mentor,
+      storage: ["/mnt/box/sortiz", "~/lab-kb"] }
   - { name: "Alex Rivera", handle: AR,  role: mentee,
-      storage: ["/mnt/box/mentee_workspace"], mentor: BN }
+      storage: ["/mnt/box/mentee_workspace"], mentor: SO }
 
 # WHICH harness drives which kind of work (see framework/harness-playbook.md).
 # Lab Brain writes the same KB from both; this just records the convention.
 harnesses:
   claude_science: { for: "omics / structural-bio / literature analysis; figure & panel reading" }
-  claude_code:    { for: "code, sims, git, manuscripts, decks; long hands-off loops via Codex" }
+  claude_code:    { for: "code, sims, git, manuscripts, decks; long hands-off loops" }
 
 # DOMAIN routing — when you point at a folder that mixes in non-project material
 # (admin, budgets, unrelated docs), exclude those subtrees so the brain stays focused.
@@ -77,7 +77,7 @@ read_tiers:
   SKIP:     [tmp, DS_Store, "~$*"]
 
 # VOCABULARY — lab jargon so entities get tagged correctly, not mangled.
-vocabulary: [CODEX, MALDI-IMS, MaxFuse, GLIMPRINT, Perturb-seq, scVI, H9N2, calcitriol, VDR]
+vocabulary: [scRNA-seq, spatial-omics, qPCR, immunofluorescence, H9N2, calcitriol, VDR, cytokine]
 
 # PRIVACY — never index or emit these. PII boundary is enforced, not advisory.
 privacy:
@@ -86,7 +86,7 @@ privacy:
 
 # OUTPUT — where the shared KB (the "brain") is written, and in what format.
 output:
-  location: "G:/My Drive/Knowledge/labbrain_registry"
+  location: "~/lab-kb/labbrain_registry"
   format: obsidian_markdown           # human-browsable vault; also emits a JSON index
   also_json: true
 

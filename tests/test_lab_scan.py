@@ -10,7 +10,7 @@ from labbrain.lab_scan import main, scan, write_manifest, write_report
 
 def _build_fixture(root: Path) -> None:
     files = {
-        "slides/20260210_flu_ABM_BN.pptx": b"presentation",
+        "slides/20260210_flu_ABM_SO.pptx": b"presentation",
         "code/foo.py": b"print('offline')\n",
         "alpha/duplicate.bin": b"same bytes",
         "beta/duplicate-copy.bin": b"same bytes",
@@ -46,10 +46,10 @@ def test_scan_classifies_files_and_applies_profile(tmp_path: Path) -> None:
     by_path = {record["path"]: record for record in records}
 
     assert [record["path"] for record in records] == sorted(by_path)
-    slide = by_path["slides/20260210_flu_ABM_BN.pptx"]
+    slide = by_path["slides/20260210_flu_ABM_SO.pptx"]
     assert slide["area"] == "slide"
     assert slide["date_prefix"] == "20260210"
-    assert slide["initials"] == "BN"
+    assert slide["initials"] == "SO"
     assert slide["project"] == "slides"
 
     code = by_path["code/foo.py"]

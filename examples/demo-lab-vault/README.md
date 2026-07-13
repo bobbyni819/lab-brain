@@ -6,8 +6,8 @@
 > knowledge is grounded in a real open-access paper
 > ([Gui et al. 2017, *Virology Journal*](https://doi.org/10.1186/s12985-017-0683-y), CC-BY).
 >
-> A mentee ("Alex Rivera") is being onboarded onto the flu-cytokine sub-track; a mentor ("Bobby Ni")
-> runs the check-in loop; the PI ("John Hickey") reads the rollup.
+> A mentee ("Alex Rivera") is being onboarded onto the flu-cytokine sub-track; a mentor ("Sam Ortiz")
+> runs the check-in loop; the PI ("Maya Rao") reads the rollup.
 
 ## What to open (each shows a convention)
 | File | Convention it demonstrates |

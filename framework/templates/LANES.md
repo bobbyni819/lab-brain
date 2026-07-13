@@ -12,13 +12,13 @@ A **lane** = one person × one workstream. Claim it here first.
 
 | Person | Role | Lane / workstream | Harness | Status | Last touched |
 |---|---|---|---|---|---|
-| @BN | mentor | figure-reading slice | CC | active | 2026-07-13 |
+| @SO | mentor | figure-reading slice | CC | active | 2026-07-13 |
 | @AR | mentee | flu-subtree index | CS | active | 2026-07-13 |
-| @JWH | pi | review / gaps audit | — | watching | 2026-07-12 |
+| @MR | pi | review / gaps audit | — | watching | 2026-07-12 |
 
 ## Done (archive, don't delete)
 | Person | Lane | Landed | Where |
 |---|---|---|---|
-| @BN | repo scaffold + schema contract | 2026-07-13 | `src/labbrain/schema.py` |
+| @SO | repo scaffold + schema contract | 2026-07-13 | `src/labbrain/schema.py` |
 
 <!-- Status vocabulary: active · blocked · review · watching · done -->
