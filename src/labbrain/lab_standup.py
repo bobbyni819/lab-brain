@@ -121,9 +121,11 @@ def _walk_vault(root: Path) -> list[_VaultFile]:
 
 def _since_date(value: str | None, files: Sequence[_VaultFile]) -> date:
     if value is not None:
+        if not isinstance(value, str) or re.fullmatch(r"\d{4}-\d{2}-\d{2}", value) is None:
+            raise ValueError("since must be an ISO date in YYYY-MM-DD format")
         try:
             return date.fromisoformat(value)
-        except (TypeError, ValueError) as exc:
+        except ValueError as exc:
             raise ValueError("since must be an ISO date in YYYY-MM-DD format") from exc
     if not files:
         return _EPOCH_DATE
