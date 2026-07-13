@@ -1,39 +1,44 @@
 ---
 name: lab-standup
-description: The multi-user synthesis engine — for each roster member, a neutral digest of their work since the last standup (one agent per person, concurrent), then a synthesized team rollup of what moved across the whole project. Additive; never overwrites anyone's log. Trainees also get a mentor-feedback scaffold. Use when the user says "lab-standup", "team digest", "what did everyone do", or names a person for their digest.
+description: The check-in digest engine — for each roster member, a NEUTRAL dated update of their work since their last round (one agent per person, concurrent), then a synthesized team rollup. Additive; never overwrites anyone's log. Pairs with /lab-feedback for the mentor half. Use when the user says "lab-standup", "team digest", "what did everyone do", or names a person for their digest.
 ---
 
-# /lab-standup — synthesize together, keep individual updates
+# /lab-standup — the neutral digest half of the check-in loop
 
-The command that makes "a whole team contributes to one brain" real. It is how the
-lab stays synchronized without anyone editing a shared log concurrently.
+The command that makes "a whole team contributes to one brain" real. It produces the **neutral
+record** of each person's work; the mentor's evaluative feedback is a separate artifact
+(`/lab-feedback`) so the two never contaminate each other. Full convention:
+`framework/mentorship-and-collaboration.md`.
 
 ## Two forms
 ```
-/lab-standup            → every member's neutral digest + a team synthesis
-/lab-standup <person>   → just that person's digest (+ mentor-feedback scaffold if trainee)
+/lab-standup            → every member's neutral update + a team synthesis
+/lab-standup <person>   → just that person's update (then run /lab-feedback <person> for the mentor half)
 ```
 
 ## Do this (scales agents to roster size)
-1. Read the roster from `lab-profile.yaml` and each member's `progress-<person>.md`
-   (and their git branches / KB day-logs) since the last standup timestamp.
-2. **Digest half** — spawn **one digest agent per member, concurrently**. Each writes a
-   NEUTRAL summary of that person's work since last check-in (what landed, what's in
-   progress, what's blocked). Neutral = factual, not evaluative.
-3. **Feedback half (trainees only)** — for `role: trainee`, additionally emit a
-   structured, dated `feedback-<person>-<date>.md` scaffold routed to their `mentor`,
-   kept SEPARATE from the neutral digest (the mentor fills/edits it).
-4. **Reduce** — one synthesis agent combines the per-person digests into a team rollup:
-   what moved across the whole project, cross-lane dependencies, and what's ready to
-   hand off. Write it to a dated `Sources/standup-<date>.md`.
-5. **Additive only** — never overwrite a person's lane log or a previous standup.
+1. Read the roster from `lab-profile.yaml`. For each member, set the **diff window** = the date of
+   their last `<date>_<person>-feedback.md` (fallback: project start).
+2. **Spawn one Explore agent per member, concurrently.** Each reads only that person's recent work:
+   git-tracked members via `git log --author=<name> --since=<window>`; vault-based members via
+   files modified since the window (day-logs, deliverables).
+3. Each agent writes a **NEUTRAL** `<date>_<person>-update.md` (idempotent — replaces same-date):
+   `Headline → per-piece breakdown (paths + line counts + mechanism) → quality flags → 1–3 verbatim
+   quotes worth preserving → files for the mentor to spot-check (the key section) → mapping to the
+   last feedback round (executed / partial / not addressed)`. Neutral = what was **done**, never
+   "the mentor should…" (that's `/lab-feedback`'s job). Template: `framework/templates/update-PERSON.md`.
+4. **Reduce** — one synthesis agent combines the per-person updates into a team rollup (what moved,
+   cross-lane dependencies, what's ready to hand off) → a dated `Sources/standup-<date>.md`.
+5. **Refresh the nav hub** — update the "current check-in round" table in `START_HERE.md` (one row
+   per person, status `🔴 not pulled · 🟡 needs feedback · 🟢 captured · ✅ closed`).
+6. **Additive only** — never overwrite a person's lane log or a previous round.
 
-Same swarm discipline as `/lab-index`: 3 people → 3 digest agents; 15 → 15, then one
-reduce. Report the count.
+Same swarm discipline as `/lab-index`: 3 people → 3 agents; 15 → 15, then one reduce. Report the count.
 
 ## Output
+- `<track>/<date>_<person>-update.md` per member (neutral)
 - `Sources/standup-<date>.md` (team synthesis)
-- per-person digests (in each person's lane or the standup note)
-- `feedback-<trainee>-<date>.md` scaffolds for mentors
+- refreshed check-in-round table in `START_HERE.md`
 
-This is the mentor/peer collaboration loop the lab already runs, made one command.
+Then run **`/lab-feedback <person>`** to capture the mentor's items into the paired, structured
+`<date>_<person>-feedback.md`. This is the check-in loop the lab already runs, made two commands.

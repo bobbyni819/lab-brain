@@ -1,86 +1,91 @@
 # 🧠 Lab Brain
 
-**Onboard a whole lab — not just one user — onto Claude Code + Claude Science, and let
-everyone contribute to one shared, cited knowledge base.**
+**A proven framework for how a whole lab runs a shared knowledge base — where to document, how to
+save, how to hand off, how to make figures and build the storyline, and how mentees collaborate and
+report to mentors — packaged so any lab can adopt it on Claude Code + Claude Science.**
 
-> Built for **Built with Claude: Life Sciences** (Builder track). Lab Brain is a set of
-> **accessory tools + conventions** that take a lab's messy existing storage and a lab's
-> *people*, and turn them into a shared "brain" that the whole team reads from and writes
-> to — each person driving their own Claude agent, every claim traceable to its source
-> (including the numbers that live only inside a figure panel).
+> Built for **Built with Claude: Life Sciences** (Builder track). Lab Brain isn't a chatbot over your
+> files — it's the **conventions + accessory tools** that let a whole team (peers *and* undergrads)
+> contribute to **one shared, cited knowledge base** without stepping on each other. Every claim is
+> traceable to its source, including the numbers that live only inside a figure panel.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 · Claude Code + Claude Science · Python 3.12
 
 ![Lab Brain — interactive showcase](./docs/assets/hero.png)
 
-> The image above is a still from **[`docs/showcase.html`](./docs/showcase.html)** — a
-> self-contained interactive walkthrough (open it in any browser: drag the swarm slider, toggle
-> peers/trainee, click the figure panels).
+> The image above is a still from **[`docs/showcase.html`](./docs/showcase.html)** — a self-contained
+> interactive walkthrough (open in any browser: drag the swarm slider, flip the peers/mentee toggle,
+> click the figure panels).
 
 ---
 
 ## Why this exists
 
-Every lab has the same two problems:
+Every lab loses knowledge for the same reason: **not because people don't write things down, but
+because nobody agrees on WHERE things go.** Updates, decisions, handoffs, figures, and findings
+scatter across chats, folders, and heads — and a new member takes months to learn what the lab
+already knows. "Chat with my files" tools onboard a *user*; they can't onboard a *lab*.
 
-1. **The mess.** Years of data, code, decks, docs, grants, and papers scattered across
-   Box/Drive/local, named `1002732.pdf` and `20260210_flu_ABM_BN.pptx`. A new member takes
-   *months* to learn what the lab already knows.
-2. **The team.** Knowledge lives in people's heads and separate folders. The moment two
-   people (or two AI harnesses) touch the same shared notes at once, things get clobbered.
-   "Chat with my files" tools onboard a *user*; they can't onboard a *lab*.
+Lab Brain is **not aspirational.** It's a generalization of the system a real lab **already runs in
+production** — a multi-person spatial-omics project (CODEX proteomics × MALDI-IMS lipidomics, human
+testis) and a Data+ undergraduate team, coordinated across Claude Code and Claude Science. We lifted
+the practice out and made it installable.
 
-Lab Brain solves both — and it isn't aspirational. It's a generalization of the
-coordination system the **Hickey Lab already runs in production** on a multi-person
-spatial-omics project (CODEX spatial proteomics × MALDI-IMS lipidomics, human testis) and a
-Data+ undergraduate team. We lifted the practice out and made it installable for any lab.
+## ⭐ The framework (the heart of this) — see [`framework/`](./framework/README.md)
 
-## The three moves
+Five conventions that turn "a pile of files and a group of people" into one self-maintaining brain:
 
-1. **Onboard fast.** One command wires a newcomer's Claude Code *and* Claude Science to the
-   lab's shared KB, with the lab's conventions preloaded as skills.
-2. **Contribute, don't just read.** Point Lab Brain at a corner of storage or a paper; a
-   dynamically-scaled **swarm** of area-specialist agents reads everything semantically
-   (one file at a time), verifies, and writes to the shared KB with provenance.
-3. **A whole team, one brain.** Peers and undergrads contribute *concurrently* via lanes +
-   a handoff convention — additive, no clobbering, with mentor scaffolding for trainees.
-   This is the hero. See **[`collab/`](./collab/README.md)**.
+| # | Convention | Answers |
+|---|---|---|
+| 1 | **[Knowledge-base structure](./framework/knowledge-base-structure.md)** | where does each *file* live? (Sources / Wiki / Output + the filing rule) |
+| 2 | **[Naming & note format](./framework/naming-and-note-format.md)** | what do I *name* it, and what's the note template? |
+| 3 | **[Documentation & handoffs](./framework/documentation-and-handoffs.md)** | where does each *update / decision / handoff / finding* go? (the routing map) |
+| 4 | **[Figures & findings](./framework/figures-and-findings.md)** | how are figures made, verified, saved, and their insights logged? |
+| 5 | **[Storyline & manuscript](./framework/storyline-and-manuscript.md)** | how is the narrative built and tracked as figures land? |
+| + | **[Mentorship & collaboration](./framework/mentorship-and-collaboration.md)** | how do peers and mentees contribute, and how do mentees report up to mentors? |
+| + | **[Harness playbook](./framework/harness-playbook.md)** | how do Claude Science + Claude Code share one brain without corruption? |
+
+The single most useful thing it gives a lab is a **default answer to "where does this go?"** — so
+nothing lands in a chat log and evaporates (finished-today → `START_HERE.md`; a handoff →
+`_handoff-log.md`; a figure's insight → `FIGURE_FINDINGS.md`; a mentee's round → paired
+`-update.md` + `-feedback.md`; a durable fact → a `MEMORY.md` note). The full table is in
+[`framework/README.md`](./framework/README.md).
 
 ## Quickstart — installs in minutes
 
 ```bash
 git clone https://github.com/<you>/lab-brain && cd lab-brain
-python bootstrap.py --members "Bobby:collaborator, Faye:trainee, John:pi"
+python bootstrap.py --members "Bobby:mentor, Faye:mentee, John:pi"
 ```
-That copies the lab's skills into your `.claude/`, writes a `lab-profile.yaml` to edit, and
-seeds the shared collaboration structure (`START_HERE.md`, `_handoff-log.md`, `LANES.md`,
-per-person progress logs). Then, in Claude Code:
+That copies the lab's skills into your `.claude/`, writes a `lab-profile.yaml` to edit, and seeds the
+shared framework structure (`START_HERE.md`, `_Log.md`, `_handoff-log.md`, `LANES.md`, a per-person
+`progress-<person>.md`). Then, in Claude Code:
 
 ```
-/lab-init          # finish configuring this lab (storage, naming, ROSTER+roles, vocabulary)
-/lab-scan          # structural inventory of the mess (no LLM, fast)
-/lab-index         # the swarm: read everything semantically, with a quality gate
-/lab-link          # assemble the browsable, cited KB vault + the provenance graph
-/lab-ask "..."     # grounded, cited answers — the newcomer's day-one interface
-/lab-standup       # per-person digests + a synthesized team rollup (the collab engine)
-/lab-read-figure   # pull verified values out of figure panels (the showcased wow)
-/lab-report        # a self-contained visual report of the run
+# onboarding pipeline
+/lab-init /lab-scan /lab-index /lab-link /lab-ask "..."      # configure → inventory → read → assemble → query
+# the framework, operationalized
+/lab-standup      # neutral per-person updates + a team rollup (the digest half)
+/lab-feedback     # capture a mentor's check-in feedback (the structured half)
+/lab-figure       # make/restyle a figure the house way, then verify it by looking
+/lab-findings     # log what each figure shows into FIGURE_FINDINGS.md
+/lab-storyline    # build the manuscript narrative — messages first, figures follow
+/lab-read-figure  # pull verified values out of figure panels    /lab-report  # a visual run report
 ```
 
-> Two steps ship as **runnable, tested code** you can try immediately, no LLM required:
-> `python -m labbrain.lab_scan --root <dir>` (a deterministic structural manifest + `SCAN_REPORT.md`
-> of any messy folder) and `python -m labbrain.slice --paper gui2017 --provider fixture` (the figure
-> read). The rest of the pipeline orchestrates agents via the skills above.
+> Two steps ship as **runnable, tested code** (no LLM required): `python -m labbrain.lab_scan --root
+> <dir>` (a deterministic manifest + `SCAN_REPORT.md` of any messy folder) and `python -m
+> labbrain.slice --paper gui2017 --provider fixture` (the figure read). The rest orchestrate agents
+> through the skills, which apply the framework conventions.
 
-## The showcased capability: reading what the text never says
+## A capability that rides on the framework: reading what the text never says
 
-Papers hide their real quantities in figures. Lab Brain reads panels blind and verifies
-each value — honestly. On a real open-access paper
+Papers hide their real quantities in figures. Lab Brain reads panels blind and verifies each value —
+honestly. On a real open-access paper
 ([Gui et al. 2017, *Virology Journal*](https://doi.org/10.1186/s12985-017-0683-y), CC-BY):
 
 ![Figure-reading with honest verification](./docs/assets/figure-demo.png)
-
 
 | Panel | Extracted (blind) | In the paper text? | Verdict |
 |---|---|---|---|
@@ -88,48 +93,46 @@ each value — honestly. On a real open-access paper
 | Fig 5a IL-6 | ~500-fold @ day 4 | text says *"5.6 fold"* | ⚠️ **NEEDS-REVIEW** (text↔figure clash) |
 | Fig 4 M-gene | grouped bars, broken axis | — | ⚠️ **NEEDS-REVIEW** (broken-axis flag) |
 
-The verified numbers **exist only in the figures** — reading the text does not give them to
-you. And the tool never fakes confidence: a busy panel, a broken axis, or a text↔figure
-disagreement is flagged `needs-review` with the panel crop always kept as provenance
-([D5 verification](./collab/README.md)). Run it yourself:
+The verified numbers **exist only in the figures.** The tool never fakes confidence: a busy panel, a
+broken axis, or a text↔figure disagreement is flagged `needs-review` with the panel crop always kept
+as provenance. Run it yourself:
 
 ```bash
 pip install -e .
 python -m labbrain.slice --paper gui2017 --provider fixture \
        --vault demo_vault --report examples/gui2017/figure_report.html
 ```
-`--provider fixture` runs fully offline. Under **Claude Science** use `--provider hostllm`
-(its state-of-the-art figure reading); with an API key, `--provider anthropic`. Advanced
-multi-panel auto-segmentation + supplementary-info reading are Claude-Science-lane roadmap.
+`--provider fixture` runs fully offline. Under **Claude Science** use `--provider hostllm`; with an
+API key, `--provider anthropic`. Advanced multi-panel auto-segmentation + supplementary-info reading
+are Claude-Science-lane roadmap.
 
-## How it scores against the mess (design principle)
-
-Genericity lives in **one file** — `lab-profile.yaml`. The skills and code ship with
-grounded defaults and never change per-lab; another lab just edits the profile (its storage,
-naming regexes, **roster + roles**, vocabulary, privacy rules). No abstract templates.
+## How it adapts to any lab (design principle)
+Genericity lives in **one file** — `lab-profile.yaml`. The framework docs, skills, and code ship with
+grounded defaults and never change per-lab; another lab just edits the profile (storage, naming,
+**roster + roles**, vocabulary, privacy). No abstract templates.
 
 ## Repo layout
-
 ```
 lab-brain/
 ├── bootstrap.py              # the one-line installer (clone → setup)
 ├── lab-profile.example.yaml  # the ENTIRE per-lab customization layer (+ roster/roles)
-├── .claude/skills/           # the skill bundle: /lab-init, /lab-scan, /lab-index, ...
-├── collab/                   # ⭐ the multi-user collaboration kit (the hero)
-│   ├── README.md             #   the collaboration model (peers + trainees, one brain)
+├── framework/                # ⭐ THE FRAMEWORK — the conventions (the hero)
+│   ├── README.md             #   overview + the "where does this go?" routing map
+│   ├── knowledge-base-structure.md · naming-and-note-format.md · documentation-and-handoffs.md
+│   ├── figures-and-findings.md · storyline-and-manuscript.md · mentorship-and-collaboration.md
 │   ├── harness-playbook.md   #   Claude Science + Claude Code on one shared KB
-│   ├── roles-and-lanes.md    #   roles, guidance intensity, anti-collision lanes
-│   └── templates/            #   START_HERE / _handoff-log / LANES / progress-<person>
-├── src/labbrain/             # the figure-reading capability (fetch→render→crop→extract→verify→vault→report)
+│   └── templates/            #   START_HERE · _Log · _handoff-log · LANES · progress · note · FIGURE_FINDINGS · storyline · feedback · update · day-log
+├── .claude/skills/           # 14 skills that apply the framework (lab-init, lab-standup, lab-feedback, lab-figure, …)
+├── src/labbrain/             # runnable code: lab_scan (structural) + the figure reader (fetch→…→verify→vault→report)
 ├── examples/gui2017/         # the verified hero-paper run
 ├── demo_vault/               # a stripped demo KB that fills as you run
-└── tests/                    # offline pytest (verification, vault, schema, end-to-end)
+└── tests/                    # offline pytest (29 tests: scan, verification, vault, schema, end-to-end)
 ```
 
 ## Design docs
-- **[`collab/README.md`](./collab/README.md)** — the collaboration model (start here for the hero).
-- **[`collab/harness-playbook.md`](./collab/harness-playbook.md)** — two harnesses, one brain.
-- **[`docs/`](./docs/)** — architecture, verification ethic, the swarm.
+- **[`framework/README.md`](./framework/README.md)** — start here: the conventions + the routing map.
+- **[`docs/architecture.md`](./docs/architecture.md)** — the three layers, the swarm, verification.
+- **[`SUBMISSION.md`](./SUBMISSION.md)** — the 100–200-word summary + how it maps to the rubric.
 
 ## License
 MIT — see [LICENSE](./LICENSE). Uses only open-access, appropriately-licensed paper data.

@@ -25,7 +25,7 @@ that makes knowledge findable.
    - `catalogs/*.md` — `people.md`, `datasets.md`, `methods.md`, `glossary.md`
      (lab jargon), `storage_map.md`, `domains.md`
 5. **Attach per-person lanes:** for each roster member, seed/refresh `progress-<person>.md`
-   and (trainees) a sub-track folder. This is what makes the vault a *team* vault.
+   and (mentees) a sub-track folder + onboarding scaffold. This is what makes the vault a *team* vault.
 
 Every emitted fact links back to its source artifact (and, for figure values, the
 panel crop). No un-cited claims.

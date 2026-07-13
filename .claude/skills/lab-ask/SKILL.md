@@ -25,7 +25,7 @@ The interface a new member uses on day one. Every answer is cited.
 ```
 
 ## Role-aware answers
-`trainee` askers get more explanatory answers + "start-here" pointers; `collaborator`
+`mentee` askers get more explanatory answers + "start-here" pointers; `maintainer`
 / `pi` get terser, denser answers. Role comes from the roster.
 
 ## Output

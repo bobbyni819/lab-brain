@@ -80,7 +80,7 @@ Next: <what I'm doing now>
 - **Claude Code:** auto-loads the repo instructions (which point here) + the KB
   `START_HERE.md`. Nothing to do — it finds this.
 - **Claude Science:** does not auto-read the KB. Give it this once via its Memory,
-  and/or start CS sessions with: *"Read `collab/harness-playbook.md` and this
+  and/or start CS sessions with: *"Read `framework/harness-playbook.md` and this
   project's `START_HERE.md` + `_handoff-log.md`, then follow that handoff
   convention."*
 

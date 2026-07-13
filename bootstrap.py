@@ -11,7 +11,7 @@ seeds the shared collaboration structure in your KB. No network, no build step.
 Common flags (all optional; sensible defaults, non-interactive-friendly):
     --target DIR     where to install the .claude skills (default: current dir)
     --kb DIR         where to seed the shared KB collab files (default: ./labbrain_vault)
-    --members "A:pi, B:collaborator, C:trainee"   seed the roster + per-person logs
+    --members "A:pi, B:mentor, C:mentee"   seed the roster + per-person logs
     --no-skills      skip copying skills
     --force          overwrite existing files
 
@@ -65,7 +65,7 @@ def copy_tree(src: Path, dst: Path, force: bool) -> int:
 
 
 def parse_members(spec: str) -> list[tuple[str, str]]:
-    """'Bobby:collaborator, Faye:trainee' -> [('Bobby','collaborator'), ('Faye','trainee')]"""
+    """'Bobby:mentor, Faye:mentee' -> [('Bobby','mentor'), ('Faye','mentee')]"""
     out: list[tuple[str, str]] = []
     for chunk in spec.split(","):
         chunk = chunk.strip()
@@ -74,16 +74,16 @@ def parse_members(spec: str) -> list[tuple[str, str]]:
         if ":" in chunk:
             name, role = chunk.split(":", 1)
         else:
-            name, role = chunk, "collaborator"
-        out.append((name.strip(), role.strip() or "collaborator"))
+            name, role = chunk, "maintainer"
+        out.append((name.strip(), role.strip() or "maintainer"))
     return out
 
 
-def seed_collab(kb: Path, members: list[tuple[str, str]], force: bool) -> None:
-    """Copy the collaboration templates into the KB and seed per-person progress logs."""
-    templates = REPO / "collab" / "templates"
+def seed_framework(kb: Path, members: list[tuple[str, str]], force: bool) -> None:
+    """Copy the framework templates into the KB and seed per-person progress logs."""
+    templates = REPO / "framework" / "templates"
     kb.mkdir(parents=True, exist_ok=True)
-    for name in ("START_HERE.md", "_handoff-log.md", "LANES.md"):
+    for name in ("START_HERE.md", "_Log.md", "_handoff-log.md", "LANES.md"):
         target = kb / name
         if target.exists() and not force:
             info(f"kept existing {name}")
@@ -95,7 +95,7 @@ def seed_collab(kb: Path, members: list[tuple[str, str]], force: bool) -> None:
         target = kb / f"progress-{name.lower().replace(' ', '-')}.md"
         if target.exists() and not force:
             continue
-        body = person_tpl.replace("<person>", name).replace("<pi|collaborator|trainee>", role)
+        body = person_tpl.replace("<person>", name).replace("<pi|mentor|maintainer|mentee>", role)
         target.write_text(body, encoding="utf-8")
         ok(f"seeded progress-{name} ({role})")
 
@@ -104,7 +104,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Lab Brain one-line installer")
     ap.add_argument("--target", default=".", help="where to install .claude skills")
     ap.add_argument("--kb", default="./labbrain_vault", help="where to seed the shared KB")
-    ap.add_argument("--members", default="", help='e.g. "Bobby:collaborator, Faye:trainee"')
+    ap.add_argument("--members", default="", help='e.g. "Bobby:mentor, Faye:mentee, John:pi"')
     ap.add_argument("--no-skills", action="store_true")
     ap.add_argument("--force", action="store_true")
     args = ap.parse_args()
@@ -130,15 +130,16 @@ def main() -> int:
     else:
         info("kept existing lab-profile.yaml")
 
-    info("seeding shared collaboration structure ...")
-    seed_collab(kb, members, args.force)
+    info("seeding shared framework structure ...")
+    seed_framework(kb, members, args.force)
 
     print("\n" + _c("1", "Next:"))
     print("  1. Edit lab-profile.yaml (storage roots, naming, ROSTER+roles, vocabulary).")
     print("  2. In Claude Code, run  /lab-init  to finish configuring + review the profile.")
     print("  3. Then  /lab-scan -> /lab-index -> /lab-link  to build the shared brain.")
     print("  4. Try  /lab-read-figure  on an OA paper, and  /lab-standup  for the team digest.")
-    print("\n  Collaboration convention: collab/harness-playbook.md  (read before two people/harnesses work at once)\n")
+    print("\n  The framework (how a lab documents, saves, hands off, makes figures, mentors):")
+    print("    framework/README.md  ->  the 'where does this go?' routing map + the five conventions\n")
     return 0
 
 

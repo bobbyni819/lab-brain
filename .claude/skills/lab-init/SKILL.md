@@ -16,7 +16,7 @@ skills and code never change per-lab; this file is the only thing that does.
    - Naming conventions: date-prefix regex, initials-suffix regex, `_processed/` dirs.
    - Project inference rule + aliases for messy folder names.
    - **The roster** — every member with `name`, `handle`, `role`
-     (`pi` | `collaborator` | `trainee`), their storage, and (trainees) a `mentor`.
+     (`pi` | `mentor` | `maintainer` | `mentee`), their storage, and (mentees) a `mentor`.
      This drives all multi-user behavior — do not skip it.
    - Domain routing (exclude venture/personal subtrees), read tiers, vocabulary
      (lab jargon so entities tag correctly), privacy globs/redactions.
@@ -24,9 +24,10 @@ skills and code never change per-lab; this file is the only thing that does.
 3. **Write `PROFILE_REVIEW.md`** — a short human-readable summary of what you
    inferred, with anything low-confidence flagged. The human corrects the yaml
    before any expensive crawl runs. **Never crawl before the profile is approved.**
-4. **Initialize the collaboration structure** in the KB output location: copy
-   `collab/templates/START_HERE.md`, `_handoff-log.md`, `LANES.md`, and a
-   `progress-<person>.md` per roster member. Fill in the roster.
+4. **Initialize the framework structure** in the KB output location: copy
+   `framework/templates/START_HERE.md`, `_Log.md`, `_handoff-log.md`, `LANES.md`, and a
+   `progress-<person>.md` per roster member (mentees also get a `day-log.md` + `questions.md`).
+   Fill in the roster. (`bootstrap.py` does this automatically.)
 
 ## Output
 - `lab-profile.yaml` (edited, lab-specific) + `PROFILE_REVIEW.md`

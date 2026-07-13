@@ -9,11 +9,11 @@ read from one place — `lab-profile.yaml` — so a new lab configures everythin
                                  │
         ┌────────────────────────┼────────────────────────┐
         ▼                        ▼                         ▼
-  ONBOARDING PIPELINE      COLLABORATION MODEL       FIGURE READING
-  (.claude/skills)         (collab/)                 (src/labbrain)
-  /lab-init → scan →       harness-playbook          fetch → render → crop →
-  triage → index →         lanes · handoff log       extract(provider) →
-  link → ask → standup     START_HERE · roles        verify(D5) → vault → report
+  ONBOARDING PIPELINE      THE FRAMEWORK             FIGURE READING
+  (.claude/skills)         (framework/)              (src/labbrain)
+  /lab-init → scan →       KB structure · naming ·   fetch → render → crop →
+  triage → index →         doc-routing · figures ·   extract(provider) →
+  link → ask → standup     storyline · mentorship    verify(D5) → vault → report
 ```
 
 ## 1 · The onboarding pipeline (cheap-structural → expensive-semantic, human-gated)
@@ -46,13 +46,16 @@ transcript on coverage / specificity / faithfulness; **(3)** the verdict is comp
 and a sub-threshold read is re-read — for papers/slides by feeding the rendered figures to a
 vision pass — then re-graded. The reader never grades itself.
 
-## 2 · The collaboration model (the hero)
-One shared KB; each person works a **lane** claimed on `LANES.md`; progress and handoffs go to an
-append-only `_handoff-log.md`; findings are written **additively** (a new dated file, never a
-concurrent edit to a shared log). Two harnesses (Claude Science + Claude Code) coordinate through
-the KB with one hard rule: **one harness owns a working-dir at a time.** The roster's per-member
-role (`pi`/`collaborator`/`trainee`) drives how much scaffolding the KB surfaces and how
-`/lab-standup` digests each person. Full detail: [`../collab/README.md`](../collab/README.md).
+## 2 · The framework — the conventions (the hero)
+The heart of Lab Brain is `framework/` — a set of adoptable conventions generalized from a system a
+real lab already runs. It answers, by default, *where does everything go*: files (three-layer
+Sources / Wiki / Output + a filing rule), updates/handoffs/decisions (`START_HERE.md` daily-brief,
+`_Log.md`, `_handoff-log.md`), figures (restyle-not-reinvent + verify-by-looking + `FIGURE_FINDINGS.md`),
+the manuscript storyline (messages-first, per-panel "beats"), and mentorship (a paired-by-date
+check-in loop: a neutral `-update.md` + a structured `-feedback.md`, with mentee scaffolding). Two
+harnesses coordinate through the KB with one hard rule: **one harness owns a working-dir at a time.**
+The roster's per-member role (`pi`/`mentor`/`maintainer`/`mentee`) selects scaffolding and the
+report-up path. Full detail: [`../framework/README.md`](../framework/README.md).
 
 ## 3 · The figure-reading capability (`src/labbrain`)
 A tight, offline-first pipeline, one module per stage:

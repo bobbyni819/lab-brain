@@ -1,7 +1,7 @@
 ---
 title: "Progress — <person>"
 person: <person>
-role: <pi|collaborator|trainee>
+role: <pi|mentor|maintainer|mentee>
 status: "Your OWN worklog. Additive — append newest at top. A rollup (/lab-standup) aggregates all
 progress-*.md files; nobody edits a shared log concurrently, so there is nothing to merge."
 updated: <YYYY-MM-DD>

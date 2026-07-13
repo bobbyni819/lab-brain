@@ -8,7 +8,7 @@ Claim shared files on the ACTIVE EDITS board before editing. Re-read before you 
 
 # Handoff log — <project>
 
-See `collab/harness-playbook.md` for the full convention.
+See `framework/harness-playbook.md` for the full convention.
 
 ## 🔒 ACTIVE EDITS  (claim a shared file before editing; delete your line when done)
 <!-- - 🔒 [HH:MM] @CC BN/CODE — src/foo.py — refactoring the loader -->
