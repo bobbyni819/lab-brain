@@ -3,7 +3,7 @@
 ## Access
 - [x] Added to the shared vault (read access)
 - [x] Added to the `flu-analysis` repo
-- [x] Own Claude Code set up (`bootstrap.py` ran; 15 skills installed)
+- [x] Own Claude Code set up (`bootstrap.py` ran; 16 skills installed)
 - [ ] Claude Science access (pending — needed for host.llm panel reads)
 
 ## Read in this order

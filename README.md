@@ -11,7 +11,7 @@ report to mentors — packaged so any lab can adopt it on Claude Code + Claude S
 
 [![tests](https://github.com/bobbyni819/lab-brain/actions/workflows/ci.yml/badge.svg)](https://github.com/bobbyni819/lab-brain/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
-· Claude Code + Claude Science · Python 3.12 · 29 tests, hermetic
+· Claude Code + Claude Science · Python 3.12 · 40 tests, hermetic
 
 ![Lab Brain — interactive showcase](./docs/assets/hero.png)
 
@@ -28,14 +28,14 @@ because nobody agrees on WHERE things go.** Updates, decisions, handoffs, figure
 scatter across chats, folders, and heads — and a new member takes months to learn what the lab
 already knows. "Chat with my files" tools onboard a *user*; they can't onboard a *lab*.
 
-Lab Brain is **not aspirational.** It's a generalization of the system a real lab **already runs in
-production** — a multi-person spatial-omics project (CODEX proteomics × MALDI-IMS lipidomics, human
-testis) and a Data+ undergraduate team, coordinated across Claude Code and Claude Science. We lifted
-the practice out and made it installable.
+Lab Brain is **not aspirational.** It's a generalization of the coordination practices our lab
+**runs day-to-day** — on a multi-person spatial-omics project (CODEX proteomics × MALDI-IMS
+lipidomics, human testis) and a Data+ undergraduate team, across Claude Code and Claude Science. We
+lifted the practice out and made it installable, and we're adopting this packaged version ourselves.
 
 ## ⭐ The framework (the heart of this) — see [`framework/`](./framework/README.md)
 
-Five conventions that turn "a pile of files and a group of people" into one self-maintaining brain:
+Six conventions that turn "a pile of files and a group of people" into one self-maintaining brain:
 
 | # | Convention | Answers |
 |---|---|---|
@@ -44,6 +44,7 @@ Five conventions that turn "a pile of files and a group of people" into one self
 | 3 | **[Documentation & handoffs](./framework/documentation-and-handoffs.md)** | where does each *update / decision / handoff / finding* go? (the routing map) |
 | 4 | **[Figures & findings](./framework/figures-and-findings.md)** | how are figures made, verified, saved, and their insights logged? |
 | 5 | **[Storyline & manuscript](./framework/storyline-and-manuscript.md)** | how is the narrative built and tracked as figures land? |
+| 6 | **[Onboarding](./framework/onboarding.md)** | how do you get a new member productive fast — and extract the mentor's tacit knowledge? |
 | + | **[Mentorship & collaboration](./framework/mentorship-and-collaboration.md)** | how do peers and mentees contribute, and how do mentees report up to mentors? |
 | + | **[Harness playbook](./framework/harness-playbook.md)** | how do Claude Science + Claude Code share one brain without corruption? |
 
@@ -111,9 +112,14 @@ pip install -e .
 python -m labbrain.slice --paper gui2017 --provider fixture \
        --vault demo_vault --report examples/gui2017/figure_report.html
 ```
-`--provider fixture` runs fully offline. Under **Claude Science** use `--provider hostllm`; with an
-API key, `--provider anthropic`. Advanced multi-panel auto-segmentation + supplementary-info reading
-are Claude-Science-lane roadmap.
+**How the offline demo works (read this):** `--provider fixture` runs the *full* pipeline — fetch →
+render → crop → **verify** → vault → report — on the real paper, but the one **extraction** step
+*replays a saved read* (`tests/fixtures/fig5_b.json`) instead of calling a model, so it's
+deterministic for CI and needs no API key. The **live** read (that actually looks at the crop) is
+`--provider anthropic` (needs `ANTHROPIC_API_KEY`) or, under **Claude Science**, `--provider
+hostllm`. The verification gate, crop, provenance, and report are identical either way — only *who
+reads the panel* changes. Advanced multi-panel auto-segmentation + supplementary-info reading are
+Claude-Science-lane roadmap.
 
 ## How it adapts to any lab (design principle)
 Genericity lives in **one file** — `lab-profile.yaml`. The framework docs, skills, and code ship with
@@ -131,11 +137,11 @@ lab-brain/
 │   ├── figures-and-findings.md · storyline-and-manuscript.md · mentorship-and-collaboration.md
 │   ├── harness-playbook.md   #   Claude Science + Claude Code on one shared KB
 │   └── templates/            #   START_HERE · _Log · _handoff-log · LANES · progress · note · FIGURE_FINDINGS · storyline · feedback · update · day-log
-├── .claude/skills/           # 15 skills that apply the framework (lab-init, lab-onboard, lab-standup, lab-feedback, lab-figure, …)
+├── .claude/skills/           # 16 skills that apply the framework (lab-init, lab-onboard, lab-standup, lab-feedback, lab-figure, …)
 ├── src/labbrain/             # runnable code: lab_scan (structural) + the figure reader (fetch→…→verify→vault→report)
 ├── examples/gui2017/         # the verified hero-paper run
 ├── demo_vault/               # a stripped demo KB that fills as you run
-└── tests/                    # offline pytest (29 tests: scan, verification, vault, schema, end-to-end)
+└── tests/                    # offline pytest (40 tests: scan, verification, vault, schema, end-to-end)
 ```
 
 ## Design docs

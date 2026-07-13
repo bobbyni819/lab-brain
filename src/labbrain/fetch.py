@@ -100,10 +100,9 @@ def fetch_oa_pdf(paper_key: str, dest_dir: str | Path) -> FetchedPaper:
             continue
         staged_hash = _sha256(staged_pdf)
         if expected_hash and staged_hash != expected_hash:
-            raise RuntimeError(
-                f"Staged PDF checksum mismatch for {paper_key}: expected "
-                f"{expected_hash}, got {staged_hash}."
-            )
+            # A stale copy in one candidate (e.g. a dev's work/) must not block a valid
+            # committed fixture: skip this candidate and try the next (or the network).
+            continue
         if destination.resolve() != staged_pdf.resolve():
             destination.parent.mkdir(parents=True, exist_ok=True)
             temporary = destination.with_suffix(".pdf.part")

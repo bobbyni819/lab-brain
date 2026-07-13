@@ -277,10 +277,15 @@ def _open_questions(
         owned_path = _under_prefix(record.relative, storage_prefixes) or _contains_alias(
             record.relative, aliases
         )
-        if declared_owner is not None and not _owner_matches(declared_owner, aliases):
+        if declared_owner is not None:
+            # a declared owner must be THIS person, or the file isn't theirs
+            if not _owner_matches(declared_owner, aliases):
+                continue
+        elif not owned_path:
+            # no declared owner -> attribute only if the file sits under this person's
+            # storage/sub-track path (never leak an un-owned questions.md to everyone)
             continue
-        if declared_owner is None or owned_path or _owner_matches(declared_owner, aliases):
-            questions.update(_bullet_questions(text))
+        questions.update(_bullet_questions(text))
     return sorted(questions, key=lambda item: (item.casefold(), item))
 
 

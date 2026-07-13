@@ -5,7 +5,7 @@
 > (and its AI agents) all contribute to **one knowledge base** without stepping on each other.
 >
 > It is not invented for a pitch. Every convention here is generalized from a system a real lab
-> **already runs in production** — a spatial-omics project (CODEX proteomics × MALDI-IMS lipidomics)
+> **runs day-to-day** — a spatial-omics project (CODEX proteomics × MALDI-IMS lipidomics)
 > and a Data+ undergraduate team, coordinated across Claude Code and Claude Science. We lifted the
 > practice out and made it adoptable.
 
@@ -15,7 +15,7 @@ A lab's knowledge doesn't get lost because people don't write things down. It ge
 across chats, folders, and heads. Fix the *where* and the *how*, and a knowledge base maintains
 itself as a side effect of doing the work.
 
-## The five conventions (read in order)
+## The six conventions (read in order)
 
 | # | Convention | Answers |
 |---|---|---|
@@ -54,8 +54,9 @@ showing every convention below *in use* (not as blank templates) — a lab onboa
 flu-cytokine sub-track, grounded in a real open-access paper.
 
 ## How Lab Brain installs the framework
-`python bootstrap.py` seeds a lab's vault with the templates in [`templates/`](./templates/) —
-`START_HERE.md`, `_Log.md`, `_handoff-log.md`, `LANES.md`, a `progress-<person>.md` per member, a
-note template, a `FIGURE_FINDINGS.md`, a storyline outline, and mentor-feedback scaffolds — already
-filled from the roster in `lab-profile.yaml`. The skills (`/lab-standup`, `/lab-scan`, …) then
-maintain them as the team works.
+`python bootstrap.py` seeds a lab's vault with the coordination scaffold — `START_HERE.md`,
+`_Log.md`, `_handoff-log.md`, `LANES.md`, and a `progress-<person>.md` per roster member — filled
+from `lab-profile.yaml`. The rest of the templates in [`templates/`](./templates/) (note,
+`FIGURE_FINDINGS`, storyline, feedback/update, onboarding, Unknowns Register) are applied by the
+skills that use them — `/lab-onboard` builds a member's onboarding scaffold, `/lab-findings` a figure
+log, `/lab-standup` + `/lab-feedback` a check-in round — so the vault fills as the team works.

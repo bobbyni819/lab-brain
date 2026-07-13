@@ -7,12 +7,17 @@ framework prescribes. If you contribute, work the same way.
 ```bash
 git clone https://github.com/<you>/lab-brain && cd lab-brain
 pip install -e .
-python -m pytest tests -q          # 29 tests, hermetic (no network needed)
+python -m pytest tests -q          # 40 tests, hermetic (no network needed)
 python -m labbrain.slice --paper gui2017 --provider fixture --vault demo_vault --report /tmp/r.html
 python -m labbrain.lab_scan --root . --out /tmp/scan
 ```
 CI ([`.github/workflows/ci.yml`](./.github/workflows/ci.yml)) runs the tests + both CLIs on every
 push and PR. Keep it green.
+
+> **On `--provider fixture`:** it runs the *full* pipeline on the real paper but *replays a saved
+> read* for the one extraction step (so CI is deterministic and needs no API key). A live panel read
+> is `--provider anthropic` (needs `ANTHROPIC_API_KEY`) or `--provider hostllm` under Claude Science.
+> Everything else — render, crop, the D5 verify gate, provenance, report — is identical.
 
 ## How we work here (the conventions, applied to this repo)
 - **One branch per lane** — `git checkout -b <you>/<workstream>`; open a PR for review. Never commit

@@ -14,5 +14,5 @@ updated: 2026-07-13
 - Handing off: need the panel-budget decision before I finalize which cytokines to read (→ Bobby).
 
 ## 2026-07-12
-- Onboarded: read the project + where-to-find-things; set up Claude Code (15 skills).
+- Onboarded: read the project + where-to-find-things; set up Claude Code (16 skills).
 - Added 3 rows to the Unknowns Register (2 are mine to resolve).

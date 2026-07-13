@@ -356,7 +356,12 @@ def get_provider(name: str = "auto", **kwargs: Any) -> VisionProvider:
         if _host_llm_available():
             return HostLLMProvider()
         if os.environ.get("ANTHROPIC_API_KEY"):
-            return AnthropicProvider(model=kwargs.get("model", "claude-opus-4-8"))
+            try:
+                return AnthropicProvider(model=kwargs.get("model", "claude-opus-4-8"))
+            except RuntimeError:
+                # SDK missing / key unusable -> degrade to the deterministic fixture
+                # rather than crash, honoring the "auto never hard-fails" contract.
+                pass
         return FixtureProvider(kwargs.get("fixtures_dir", "tests/fixtures"))
     if normalized == "fixture":
         return FixtureProvider(kwargs.get("fixtures_dir", "tests/fixtures"))
