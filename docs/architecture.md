@@ -25,6 +25,12 @@ read-tier) → `/lab-index` (the swarm) → `/lab-link` (assemble the cited vaul
 `/lab-ask` (grounded retrieval) → `/lab-standup` (team synthesis) → `/lab-update` (incremental
 re-sync). See each skill's `SKILL.md`.
 
+**Runnable today:** `/lab-scan` is backed by `src/labbrain/lab_scan.py` — a deterministic,
+offline module (`python -m labbrain.lab_scan --root <dir>`) that emits `manifest.jsonl` +
+`SCAN_REPORT.md` (areas, projects, duplicate groups, stale files) with no LLM. The figure-reading
+capability below is likewise fully runnable. The remaining steps orchestrate agents through the
+skills.
+
 ### The swarm (scales agents to the corpus)
 `/lab-index` spawns one **specialist reader per content area** (code, slides, lit, docs, data,
 comms, grants, media), and within an area `W = clamp(ceil(files_at_tier / files_per_worker), 1,

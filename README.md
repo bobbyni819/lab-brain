@@ -12,6 +12,12 @@ everyone contribute to one shared, cited knowledge base.**
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 · Claude Code + Claude Science · Python 3.12
 
+![Lab Brain — interactive showcase](./docs/assets/hero.png)
+
+> The image above is a still from **[`docs/showcase.html`](./docs/showcase.html)** — a
+> self-contained interactive walkthrough (open it in any browser: drag the swarm slider, toggle
+> peers/trainee, click the figure panels).
+
 ---
 
 ## Why this exists
@@ -62,11 +68,19 @@ per-person progress logs). Then, in Claude Code:
 /lab-report        # a self-contained visual report of the run
 ```
 
+> Two steps ship as **runnable, tested code** you can try immediately, no LLM required:
+> `python -m labbrain.lab_scan --root <dir>` (a deterministic structural manifest + `SCAN_REPORT.md`
+> of any messy folder) and `python -m labbrain.slice --paper gui2017 --provider fixture` (the figure
+> read). The rest of the pipeline orchestrates agents via the skills above.
+
 ## The showcased capability: reading what the text never says
 
 Papers hide their real quantities in figures. Lab Brain reads panels blind and verifies
 each value — honestly. On a real open-access paper
 ([Gui et al. 2017, *Virology Journal*](https://doi.org/10.1186/s12985-017-0683-y), CC-BY):
+
+![Figure-reading with honest verification](./docs/assets/figure-demo.png)
+
 
 | Panel | Extracted (blind) | In the paper text? | Verdict |
 |---|---|---|---|

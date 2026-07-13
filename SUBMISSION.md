@@ -38,10 +38,10 @@
 | **Depth** | 20% | Deterministic verification + provenance + an independent quality gate + a multi-user coordination model lifted from production |
 
 ## What's real vs. roadmap (honesty)
-- **Real + verified here:** the figure-reading slice runs end-to-end offline on a real CC-BY
-  paper (`python -m labbrain.slice`); 21 tests pass; the installer, skill bundle, collaboration
-  kit, and interactive artifact all work; the collaboration model is generalized from a system
-  the lab already runs.
+- **Real + verified here:** the Layer-0 structural scanner (`python -m labbrain.lab_scan`) and the
+  figure-reading slice (`python -m labbrain.slice`) both run end-to-end offline on real inputs;
+  **29 tests pass**; the installer, skill bundle, collaboration kit, and interactive artifact all
+  work; the collaboration model is generalized from a system the lab already runs.
 - **Claude-Science lane (roadmap):** advanced multi-panel auto-segmentation and
   supplementary-information reading — best developed on Claude Science's state-of-the-art figure
   harness, not re-implemented here.
