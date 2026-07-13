@@ -1,0 +1,20 @@
+{
+  "chart_type": "bar",
+  "x_axis_label": "Days post infection",
+  "y_axis_label": "M (Fold change)",
+  "y_min": 0,
+  "y_max": 5000,
+  "series_label": "Calcitriol-treated infected",
+  "points": [
+    {"x": "day 2", "y": 3900, "y_unit": "fold"},
+    {"x": "day 4", "y": 800, "y_unit": "fold"},
+    {"x": "day 6", "y": 3100, "y_unit": "fold"},
+    {"x": "day 8", "y": 700, "y_unit": "fold"}
+  ],
+  "peak_value": 3900,
+  "peak_x": "day 2",
+  "confidence": "medium",
+  "reader_notes": "Grouped bars with a BROKEN y-axis (0-1000 // 2000-5000); values above the break read with lower certainty.",
+  "flags": ["broken_axis"]
+}
+

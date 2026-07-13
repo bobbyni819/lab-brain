@@ -1,0 +1,20 @@
+{
+  "chart_type": "bar",
+  "x_axis_label": "Days post infection",
+  "y_axis_label": "Fold Change",
+  "y_min": 0,
+  "y_max": 35,
+  "series_label": "Infected control",
+  "points": [
+    {"x": "day 2", "y": 29, "y_unit": "fold"},
+    {"x": "day 4", "y": 0.7, "y_unit": "fold"},
+    {"x": "day 6", "y": 0.5, "y_unit": "fold"},
+    {"x": "day 8", "y": 2.0, "y_unit": "fold"}
+  ],
+  "peak_value": 29,
+  "peak_x": "day 2",
+  "confidence": "high",
+  "reader_notes": "Clean single-axis bar chart; infected-control TNF-a spikes sharply at day 2 then returns to baseline.",
+  "flags": []
+}
+

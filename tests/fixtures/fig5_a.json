@@ -1,0 +1,20 @@
+{
+  "chart_type": "bar",
+  "x_axis_label": "Days post infection",
+  "y_axis_label": "Fold Change",
+  "y_min": 0,
+  "y_max": 600,
+  "series_label": "Calcitriol-treated infected",
+  "points": [
+    {"x": "day 2", "y": 90, "y_unit": "fold"},
+    {"x": "day 4", "y": 500, "y_unit": "fold"},
+    {"x": "day 6", "y": 40, "y_unit": "fold"},
+    {"x": "day 8", "y": 3, "y_unit": "fold"}
+  ],
+  "peak_value": 500,
+  "peak_x": "day 4",
+  "confidence": "high",
+  "reader_notes": "IL-6 in calcitriol-treated mice peaks near 500 fold at day 4 (infected-control peak ~205 at day 2).",
+  "flags": []
+}
+

@@ -1,0 +1,42 @@
+gui2017:
+  doi: "10.1186/s12985-017-0683-y"
+  title: "Effects of calcitriol (1,25-dihydroxy-vitamin D3) on the inflammatory response induced by H9N2 influenza virus infection in human lung A549 epithelial cells and in mice"
+  authors: "Gui B, Chen Q, Hu C, Zhu C, He G"
+  journal: "Virology Journal (2017) 14:10"
+  source_url: "https://doi.org/10.1186/s12985-017-0683-y"
+  pdf_url: "https://virologyj.biomedcentral.com/counter/pdf/10.1186/s12985-017-0683-y.pdf"
+  pdf_sha256: "79d7b98a0fa9770dcf4f71631905e480ae0857a10b9c5ace1e381d797dd7afb4"
+  license: "CC-BY-4.0"
+  panels:
+    - figure_id: "Fig5"
+      panel_id: "b"
+      page_index: 8
+      bbox: [0.50, 0.10, 0.97, 0.34]
+      analyte: "TNF-a"
+      series_hint: "Infected control"
+      chart_type_hint: "bar"
+      y_axis_hint: "Fold Change"
+    - figure_id: "Fig5"
+      panel_id: "a"
+      page_index: 8
+      bbox: [0.08, 0.10, 0.50, 0.34]
+      analyte: "IL-6"
+      series_hint: "Calcitriol-treated infected"
+      chart_type_hint: "bar"
+      y_axis_hint: "Fold Change"
+    - figure_id: "Fig4"
+      panel_id: ""
+      page_index: 7
+      bbox: [0.09, 0.09, 0.95, 0.47]
+      analyte: "M gene"
+      series_hint: "Calcitriol-treated infected"
+      chart_type_hint: "bar"
+      y_axis_hint: "M (Fold change)"
+  body_text: >
+    Calcitriol treatment reduced the expression of the pro-inflammatory cytokine IL-6 at the
+    earliest stages of infection... the levels of IL-6 were upregulated up to 5.6 fold in
+    calcitriol-treated infected mice at 4 days post-infection.
+  captions:
+    Fig5: "Expression of pro-inflammatory and antiviral cytokines in calcitriol treated mice. IL-6 (a), TNF-a (b), IL-2 (c), IL-4 (d), IFN-b (e) measured by real-time PCR; RQ (2-ddCt) normalized to b-actin, calibrated to infected control."
+    Fig4: "Expression of the H9N2 M gene in the lungs of infected mice after treatment with calcitriol. RQ (2-ddCt) fold-change, normalized to b-actin, calibrated to untreated infected group. Note the broken y-axis."
+
