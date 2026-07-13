@@ -54,6 +54,12 @@ nothing lands in a chat log and evaporates (finished-today → `START_HERE.md`; 
 
 ![The "where does this go?" routing map, interactive in the showcase](./docs/assets/framework.png)
 
+**See it lived-in:** [`examples/demo-lab-vault/`](./examples/demo-lab-vault/README.md) — a small,
+realistic populated vault (a lab onboarding a mentee onto a flu-cytokine sub-track) showing every
+convention *in use*: a daily-brief `START_HERE`, a coordination log, a supervision-gated onboarding
+scaffold + filled Unknowns Register, a paired check-in round, and a `FIGURE_FINDINGS` log — all
+grounded in the real Gui 2017 paper.
+
 ## Quickstart — installs in minutes
 
 ```bash

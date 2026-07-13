@@ -48,6 +48,11 @@ thing you produce, so nothing lands in a chat log and evaporates:
 
 That table *is* the product: a lab that adopts it stops losing knowledge.
 
+## See it lived-in
+[`../examples/demo-lab-vault/`](../examples/demo-lab-vault/README.md) is a small, realistic vault
+showing every convention below *in use* (not as blank templates) — a lab onboarding a mentee onto a
+flu-cytokine sub-track, grounded in a real open-access paper.
+
 ## How Lab Brain installs the framework
 `python bootstrap.py` seeds a lab's vault with the templates in [`templates/`](./templates/) —
 `START_HERE.md`, `_Log.md`, `_handoff-log.md`, `LANES.md`, a `progress-<person>.md` per member, a
