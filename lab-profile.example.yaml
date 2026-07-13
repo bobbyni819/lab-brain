@@ -18,7 +18,7 @@ lab:
   initials_map:
     JWH: "John Hickey"
     BN:  "Bobby Ni"
-    FG:  "Faye Guo"
+    AR:  "Alex Rivera"      # example mentee
 
 # WHERE the lab's mess lives. Multiple roots, multiple backends. `role` tells
 # Lab Brain what a root is FOR so it can weight reading effort.
@@ -53,8 +53,8 @@ roster:
   - { name: "John Hickey", handle: JWH, role: pi }
   - { name: "Bobby Ni",    handle: BN,  role: mentor,
       storage: ["/mnt/box/Bobby_Ni", "G:/My Drive/Knowledge"] }
-  - { name: "Faye Guo",    handle: FG,  role: mentee,
-      storage: ["/mnt/box/Faye_Guo_26Fall"], mentor: BN }
+  - { name: "Alex Rivera", handle: AR,  role: mentee,
+      storage: ["/mnt/box/mentee_workspace"], mentor: BN }
 
 # WHICH harness drives which kind of work (see framework/harness-playbook.md).
 # Lab Brain writes the same KB from both; this just records the convention.
