@@ -317,10 +317,10 @@ footer .wrap{display:flex; justify-content:space-between; gap:20px; flex-wrap:wr
       it learns into the shared KB. <b>Click a file from a real messy lab folder.</b></p>
   </div>
   <div class="reveal" style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;font-family:var(--mono);font-size:12.5px;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;box-shadow:var(--shadow);margin-bottom:22px">
-    <b class="tnum" style="color:var(--accent-ink);font-size:16px">12</b> files
-    <span style="color:var(--faint)">→</span> <b style="color:var(--ink)">8</b> content areas
+    <b class="tnum" style="color:var(--accent-ink);font-size:16px">13</b> files
+    <span style="color:var(--faint)">→</span> <b style="color:var(--ink)">7</b> content areas
     <span style="color:var(--faint)">·</span> <b style="color:var(--ink)">1</b> duplicate caught
-    <span style="color:var(--faint)">·</span> <b style="color:var(--ink)">venture folder</b> excluded
+    <span style="color:var(--faint)">·</span> <b style="color:var(--ink)">admin folder</b> excluded
     <span style="color:var(--faint)">·</span> <b style="color:var(--ink)">temp files</b> skipped
     <span style="margin-left:auto;color:var(--faint);font-size:11px">a real run of <b>python -m labbrain.lab_scan</b></span>
   </div>
@@ -578,10 +578,10 @@ footer .wrap{display:flex; justify-content:space-between; gap:20px; flex-wrap:wr
      reads:"a cheap content hash",
      ex:"byte-identical to raw_counts.csv — a stray copy",
      dest:"flagged as a duplicate; one canonical copy is kept, not two"},
-    {n:"DCP - Deal Sourcing/…xlsx", a:"not science",
+    {n:"Admin/budget_2026Q1.xlsx", a:"not this project",
      reads:"— the profile's domain rule matches its path",
-     ex:"venture material, not lab science",
-     dest:"excluded from the science KB entirely (a one-line rule in lab-profile.yaml)"}
+     ex:"lab admin / budget material, not project science",
+     dest:"excluded from the KB entirely (a one-line domain rule in lab-profile.yaml)"}
   ];
   var pick=document.getElementById('ingestpick'), stage=document.getElementById('ingeststage');
   if(pick&&stage){

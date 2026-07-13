@@ -18,7 +18,7 @@ skills and code never change per-lab; this file is the only thing that does.
    - **The roster** — every member with `name`, `handle`, `role`
      (`pi` | `mentor` | `maintainer` | `mentee`), their storage, and (mentees) a `mentor`.
      This drives all multi-user behavior — do not skip it.
-   - Domain routing (exclude venture/personal subtrees), read tiers, vocabulary
+   - Domain routing (exclude non-project subtrees, e.g. admin/budget), read tiers, vocabulary
      (lab jargon so entities tag correctly), privacy globs/redactions.
    - Output KB location + format, and cost caps (`max_full_reads`).
 3. **Write `PROFILE_REVIEW.md`** — a short human-readable summary of what you

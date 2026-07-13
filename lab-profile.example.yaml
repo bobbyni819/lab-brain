@@ -62,11 +62,11 @@ harnesses:
   claude_science: { for: "omics / structural-bio / literature analysis; figure & panel reading" }
   claude_code:    { for: "code, sims, git, manuscripts, decks; long hands-off loops via Codex" }
 
-# DOMAIN routing — segment or exclude subtrees that aren't lab science
-# (e.g. venture/deal-sourcing, personal finance). Keeps the brain focused.
+# DOMAIN routing — when you point at a folder that mixes in non-project material
+# (admin, budgets, unrelated docs), exclude those subtrees so the brain stays focused.
 domains:
-  - { match: '^DCP|Active Deals', route: venture, action: exclude }
-  - { match: '.*',                route: science }
+  - { match: '^Admin|^Budget',  route: non_project, action: exclude }
+  - { match: '.*',              route: science }
 
 # READ TIERS — how deeply to read each format (cost control). FULL = semantic
 # deep read; SKIM = text + captions; METADATA = index only; SKIP = ignore.

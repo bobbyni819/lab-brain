@@ -2,8 +2,8 @@
 
 ## Summary
 
-- Total files: **12**
-- Total size: **1.2 MB** (1273229 bytes)
+- Total files: **13**
+- Total size: **1.2 MB** (1274382 bytes)
 
 ## Counts by area
 
@@ -11,7 +11,7 @@
 | --- | ---: |
 | code | 1 |
 | config | 1 |
-| doc | 4 |
+| doc | 5 |
 | figure | 1 |
 | notebook | 1 |
 | sheet | 3 |
@@ -21,7 +21,7 @@
 
 | Project | Files |
 | --- | ---: |
-| (root) | 6 |
+| (root) | 7 |
 | _processed | 2 |
 | code | 3 |
 | media | 1 |

@@ -17,7 +17,7 @@ def _build_fixture(root: Path) -> None:
         "drafts/~$draft.docx": b"temporary",
         "empty.txt": b"",
         "private/CV_notes.md": b"private",
-        "DCP/deal.md": b"excluded domain",
+        "Admin/budget.md": b"excluded domain",
     }
     for relative_path, content in files.items():
         path = root / relative_path
@@ -34,7 +34,7 @@ def _profile() -> dict:
     return {
         "read_tiers": {"SKIP": ["~$*"]},
         "privacy": {"exclude_globs": ["private/*"]},
-        "domains": [{"match": r"^DCP/", "action": "exclude"}],
+        "domains": [{"match": r"^Admin/", "action": "exclude"}],
     }
 
 
@@ -65,7 +65,7 @@ def test_scan_classifies_files_and_applies_profile(tmp_path: Path) -> None:
 
     assert "drafts/~$draft.docx" not in by_path
     assert "private/CV_notes.md" not in by_path
-    assert "DCP/deal.md" not in by_path
+    assert "Admin/budget.md" not in by_path
 
 
 def test_profile_can_be_loaded_from_yaml(tmp_path: Path) -> None:
