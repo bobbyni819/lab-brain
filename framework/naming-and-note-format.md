@@ -12,8 +12,8 @@ competing date formats before the convention was fixed.
 | Source article / paper | `AuthorLastName_Year_short-title.md` | `Smith_2024_intestinal-lipids.md` |
 | Dated output (report / plan / draft / audit / order) | `kebab-name-YYYY-MM-DD.md` (**trailing ISO date**) | `panel-audit-2026-05-28.md` |
 | Versioned doc | `kebab-name-vN.md` | `finalized-proposal-v1.md` |
-| Per-person work log | `progress-<person>.md` | `progress-faye.md` |
-| Mentor feedback | `feedback-<person>-YYYY-MM-DD.md` | `feedback-faye-2026-07-13.md` |
+| Per-person work log | `progress-<person>.md` | `progress-alex.md` |
+| Mentor feedback | `feedback-<person>-YYYY-MM-DD.md` | `feedback-alex-2026-07-13.md` |
 
 **Rules**
 - Dated files use the **trailing `YYYY-MM-DD`** form — *not* `YYYYMMDD_` prefix, *not* a compact

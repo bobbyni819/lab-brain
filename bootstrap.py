@@ -65,7 +65,7 @@ def copy_tree(src: Path, dst: Path, force: bool) -> int:
 
 
 def parse_members(spec: str) -> list[tuple[str, str]]:
-    """'Bobby:mentor, Faye:mentee' -> [('Bobby','mentor'), ('Faye','mentee')]"""
+    """'Bobby:mentor, Alex:mentee' -> [('Bobby','mentor'), ('Alex','mentee')]"""
     out: list[tuple[str, str]] = []
     for chunk in spec.split(","):
         chunk = chunk.strip()
@@ -104,7 +104,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Lab Brain one-line installer")
     ap.add_argument("--target", default=".", help="where to install .claude skills")
     ap.add_argument("--kb", default="./labbrain_vault", help="where to seed the shared KB")
-    ap.add_argument("--members", default="", help='e.g. "Bobby:mentor, Faye:mentee, John:pi"')
+    ap.add_argument("--members", default="", help='e.g. "Bobby:mentor, Alex:mentee, John:pi"')
     ap.add_argument("--no-skills", action="store_true")
     ap.add_argument("--force", action="store_true")
     args = ap.parse_args()

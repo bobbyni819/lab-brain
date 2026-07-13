@@ -9,3 +9,6 @@ build/
 dist/
 .DS_Store
 .playwright-mcp/
+
+# per-user generated profile (ship only lab-profile.example.yaml)
+lab-profile.yaml

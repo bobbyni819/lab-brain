@@ -13,7 +13,7 @@ A **lane** = one person × one workstream. Claim it here first.
 | Person | Role | Lane / workstream | Harness | Status | Last touched |
 |---|---|---|---|---|---|
 | @BN | mentor | figure-reading slice | CC | active | 2026-07-13 |
-| @FG | mentee | flu-subtree index | CS | active | 2026-07-13 |
+| @AR | mentee | flu-subtree index | CS | active | 2026-07-13 |
 | @JWH | pi | review / gaps audit | — | watching | 2026-07-12 |
 
 ## Done (archive, don't delete)

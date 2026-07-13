@@ -58,7 +58,7 @@ nothing lands in a chat log and evaporates (finished-today → `START_HERE.md`; 
 
 ```bash
 git clone https://github.com/<you>/lab-brain && cd lab-brain
-python bootstrap.py --members "Bobby:mentor, Faye:mentee, John:pi"
+python bootstrap.py --members "Bobby:mentor, Alex:mentee, John:pi"
 ```
 That copies the lab's skills into your `.claude/`, writes a `lab-profile.yaml` to edit, and seeds the
 shared framework structure (`START_HERE.md`, `_Log.md`, `_handoff-log.md`, `LANES.md`, a per-person
