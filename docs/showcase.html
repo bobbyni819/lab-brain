@@ -110,6 +110,13 @@ section{padding:56px 0; border-bottom:1px solid var(--line)}
 .reveal{transition:opacity .6s ease, transform .6s ease}
 html.js .reveal:not(.in){opacity:0; transform:translateY(14px)}
 @media (prefers-reduced-motion:reduce){html.js .reveal:not(.in){opacity:1; transform:none; transition:none}}
+/* Print / PDF: force every section visible (no scroll-reveal gaps) and unstick the nav. */
+@media print{
+  html.js .reveal:not(.in), .reveal{opacity:1 !important; transform:none !important}
+  .bar{position:static; backdrop-filter:none}
+  section{border-bottom:1px solid var(--line)}
+  .tgl,.nav{display:none}
+}
 
 /* cards grid */
 .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}

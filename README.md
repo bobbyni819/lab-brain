@@ -16,8 +16,9 @@ report to mentors — packaged so any lab can adopt it on Claude Code + Claude S
 ![Lab Brain — interactive showcase](./docs/assets/hero.png)
 
 > The image above is a still from **[`docs/showcase.html`](./docs/showcase.html)** — a self-contained
-> interactive walkthrough (open in any browser: drag the swarm slider, flip the peers/mentee toggle,
-> click the figure panels).
+> interactive walkthrough (open in any browser: click a file to watch it get sorted, flip the
+> peers/mentee toggle, explore the routing map). Prefer to just flip through it? A printed
+> **[PDF walkthrough](./docs/lab-brain-walkthrough.pdf)** is in the repo.
 
 ---
 
