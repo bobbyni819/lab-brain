@@ -33,14 +33,14 @@
 |---|---|---|
 | **Demo** | 30% | A person goes zero → contributing; one jaw-drop moment (a figure-only number, verified live) |
 | **Impact** | 25% | Named user (a PI onboarding a lab + mentoring undergrads); the exact problem this hackathon exists to solve; **already adopted in a real lab** |
-| **Claude Use** | 25% | A convention framework + a 14-skill bundle + a dynamically-scaled agent swarm + panel-level figure reading + a two-harness (Code + Science) coordination layer — far beyond a chat app |
+| **Claude Use** | 25% | A convention framework + a 15-skill bundle + a dynamically-scaled agent swarm + panel-level figure reading + a two-harness (Code + Science) coordination layer — far beyond a chat app |
 | **Depth** | 20% | Conventions lifted from production (KB structure, doc-routing, figure/storyline discipline, the paired-doc mentorship loop) + deterministic verification + provenance + an independent quality gate |
 
 ## What's real vs. roadmap (honesty)
 - **Real + verified here:** the framework docs + templates are generalized from a lab's live system;
   the Layer-0 structural scanner (`python -m labbrain.lab_scan`) and the figure-reading slice
   (`python -m labbrain.slice`) both run end-to-end offline on real inputs; **29 tests pass**; the
-  installer, the 14-skill bundle, and the interactive artifact all work.
+  installer, the 15-skill bundle, and the interactive artifact all work.
 - **Claude-Science lane (roadmap):** advanced multi-panel auto-segmentation and
   supplementary-information reading — best developed on Claude Science's state-of-the-art figure
   harness, not re-implemented here.

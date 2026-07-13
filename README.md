@@ -124,7 +124,7 @@ lab-brain/
 │   ├── figures-and-findings.md · storyline-and-manuscript.md · mentorship-and-collaboration.md
 │   ├── harness-playbook.md   #   Claude Science + Claude Code on one shared KB
 │   └── templates/            #   START_HERE · _Log · _handoff-log · LANES · progress · note · FIGURE_FINDINGS · storyline · feedback · update · day-log
-├── .claude/skills/           # 14 skills that apply the framework (lab-init, lab-standup, lab-feedback, lab-figure, …)
+├── .claude/skills/           # 15 skills that apply the framework (lab-init, lab-onboard, lab-standup, lab-feedback, lab-figure, …)
 ├── src/labbrain/             # runnable code: lab_scan (structural) + the figure reader (fetch→…→verify→vault→report)
 ├── examples/gui2017/         # the verified hero-paper run
 ├── demo_vault/               # a stripped demo KB that fills as you run

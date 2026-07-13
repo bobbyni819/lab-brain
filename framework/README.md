@@ -24,6 +24,7 @@ itself as a side effect of doing the work.
 | 3 | **[Documentation & handoffs](./documentation-and-handoffs.md)** | Where does each *update / decision / handoff / finding* go? (the routing map) |
 | 4 | **[Figures & findings](./figures-and-findings.md)** | How are figures made, verified, saved, and their insights logged? |
 | 5 | **[Storyline & manuscript](./storyline-and-manuscript.md)** | How is the narrative built and tracked as figures land? |
+| 6 | **[Onboarding](./onboarding.md)** | How do you get a new member productive fast — and extract the mentor's tacit knowledge? |
 | + | **[Mentorship & collaboration](./mentorship-and-collaboration.md)** | How do peers and mentees contribute, and how do mentees report up to mentors? |
 | + | **[Harness playbook](./harness-playbook.md)** | How do Claude Science + Claude Code share one brain without corruption? |
 
