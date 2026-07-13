@@ -16,9 +16,19 @@ record** of each person's work; the mentor's evaluative feedback is a separate a
 /lab-standup <person>   → just that person's update (then run /lab-feedback <person> for the mentor half)
 ```
 
+## Runnable gather (the deterministic half — no LLM)
+Collect each person's raw activity with the runnable gather, then hand it to the agents to write the
+neutral updates:
+```
+python -m labbrain.lab_standup --vault <kb> --profile lab-profile.yaml --repo <repo> [--person X] [--out registry]
+```
+It pulls, per member: git commits (by author since their last feedback date), files modified since
+then, their `progress-<person>.md` excerpt, and their `questions.md` open items — into a
+`standup-input.md`. (Git degrades gracefully to none if the vault isn't a repo.)
+
 ## Do this (scales agents to roster size)
-1. Read the roster from `lab-profile.yaml`. For each member, set the **diff window** = the date of
-   their last `<date>_<person>-feedback.md` (fallback: project start).
+1. Read the roster from `lab-profile.yaml` (or run the gather above). For each member, set the
+   **diff window** = the date of their last `<date>_<person>-feedback.md` (fallback: project start).
 2. **Spawn one Explore agent per member, concurrently.** Each reads only that person's recent work:
    git-tracked members via `git log --author=<name> --since=<window>`; vault-based members via
    files modified since the window (day-logs, deliverables).
