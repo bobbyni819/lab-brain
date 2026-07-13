@@ -9,8 +9,9 @@ report to mentors — packaged so any lab can adopt it on Claude Code + Claude S
 > contribute to **one shared, cited knowledge base** without stepping on each other. Every claim is
 > traceable to its source, including the numbers that live only inside a figure panel.
 
+[![tests](https://github.com/bobbyni819/lab-brain/actions/workflows/ci.yml/badge.svg)](https://github.com/bobbyni819/lab-brain/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
-· Claude Code + Claude Science · Python 3.12
+· Claude Code + Claude Science · Python 3.12 · 29 tests, hermetic
 
 ![Lab Brain — interactive showcase](./docs/assets/hero.png)
 

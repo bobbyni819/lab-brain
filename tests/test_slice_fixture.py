@@ -5,7 +5,8 @@ def test_real_pdf_fixture_slice_writes_three_records_and_report(tmp_path: Path) 
     from labbrain.slice import run_slice
 
     repo_root = Path(__file__).resolve().parents[1]
-    assert (repo_root / "work" / "gui2017.pdf").exists()
+    # committed, license-permitted (CC-BY) fixture -> hermetic clone -> test
+    assert (repo_root / "tests" / "fixtures" / "gui2017.pdf").exists()
     vault = tmp_path / "demo_vault"
     report = tmp_path / "examples" / "gui2017" / "figure_report.html"
 

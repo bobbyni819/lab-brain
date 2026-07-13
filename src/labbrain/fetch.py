@@ -89,8 +89,15 @@ def fetch_oa_pdf(paper_key: str, dest_dir: str | Path) -> FetchedPaper:
         if expected_hash and existing_hash == expected_hash:
             return _fetched(destination, config, existing_hash)
 
-    staged_pdf = _REPO_ROOT / "work" / f"{paper_key}.pdf"
-    if staged_pdf.is_file():
+    # Prefer a locally-staged copy over the network: work/ (dev) or tests/fixtures/
+    # (a committed, license-permitted copy that keeps clone -> run/test hermetic).
+    staged_candidates = (
+        _REPO_ROOT / "work" / f"{paper_key}.pdf",
+        _REPO_ROOT / "tests" / "fixtures" / f"{paper_key}.pdf",
+    )
+    for staged_pdf in staged_candidates:
+        if not staged_pdf.is_file():
+            continue
         staged_hash = _sha256(staged_pdf)
         if expected_hash and staged_hash != expected_hash:
             raise RuntimeError(
@@ -102,9 +109,8 @@ def fetch_oa_pdf(paper_key: str, dest_dir: str | Path) -> FetchedPaper:
             temporary = destination.with_suffix(".pdf.part")
             shutil.copyfile(staged_pdf, temporary)
             os.replace(temporary, destination)
-        else:
-            destination = staged_pdf
-        return _fetched(destination, config, staged_hash)
+            return _fetched(destination, config, staged_hash)
+        return _fetched(staged_pdf, config, staged_hash)
 
     pdf_url = str(config.get("pdf_url", "")).strip()
     if not pdf_url:
