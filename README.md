@@ -52,6 +52,8 @@ nothing lands in a chat log and evaporates (finished-today → `START_HERE.md`; 
 `-update.md` + `-feedback.md`; a durable fact → a `MEMORY.md` note). The full table is in
 [`framework/README.md`](./framework/README.md).
 
+![The "where does this go?" routing map, interactive in the showcase](./docs/assets/framework.png)
+
 ## Quickstart — installs in minutes
 
 ```bash

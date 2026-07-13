@@ -219,10 +219,10 @@ footer .wrap{display:flex; justify-content:space-between; gap:20px; flex-wrap:wr
   <div class="brand"><span class="dot" aria-hidden="true"></span> Lab Brain</div>
   <nav class="nav" aria-label="sections">
     <a href="#problem">Problem</a>
-    <a href="#moves">Approach</a>
+    <a href="#framework">Framework</a>
+    <a href="#collab">Mentorship</a>
+    <a href="#figures">Figures</a>
     <a href="#swarm">Swarm</a>
-    <a href="#collab">Collaboration</a>
-    <a href="#figures">Figure reading</a>
     <a href="#pipeline">Pipeline</a>
     <a href="#adopt">In the lab</a>
     <a href="#install">Install</a>
@@ -246,7 +246,7 @@ footer .wrap{display:flex; justify-content:space-between; gap:20px; flex-wrap:wr
       <span class="chip">license · <b>MIT</b></span>
     </div>
     <div class="cli"><span class="c"># one line: your team's Claude gets the lab's skills + conventions</span><br>
-      <span class="p">$</span> git clone …/lab-brain &amp;&amp; python bootstrap.py --members "Bobby:collaborator, Faye:trainee, John:pi"</div>
+      <span class="p">$</span> git clone …/lab-brain &amp;&amp; python bootstrap.py --members "Bobby:mentor, Faye:mentee, John:pi"</div>
   </div>
   <div>
     <div class="shot">
@@ -293,8 +293,36 @@ footer .wrap{display:flex; justify-content:space-between; gap:20px; flex-wrap:wr
       <p>A swarm of area-specialist agents reads each artifact in full, verifies, and writes to the KB with
         provenance and a confidence — never a skim.</p></div>
     <div class="card reveal"><div class="n">move 03</div><h3>A whole team, one brain</h3>
-      <p>Peers and trainees contribute concurrently through lanes + a handoff convention — additive, no
-        clobbering, with mentor scaffolding built in. <b>This is the hero.</b></p></div>
+      <p>Peers and mentees contribute concurrently through a shared <b>framework of conventions</b> —
+        where things go, how figures are made, how mentees report up. Additive, no clobbering.
+        <b>That framework is the hero.</b></p></div>
+  </div>
+</div></section>
+
+<!-- ===================== framework (interactive) ===================== -->
+<section id="framework"><div class="wrap">
+  <div class="sec-head reveal">
+    <div class="eyebrow">The framework · the hero</div>
+    <h2>"Where does this go?" — answered by default.</h2>
+    <p>A lab loses knowledge not because people don't write things down, but because nobody agrees on
+      <em>where things go</em> — so updates, decisions, and findings scatter into chat logs and vanish.
+      The framework gives every artifact one home. <b>Pick something you just did.</b></p>
+  </div>
+  <div class="demo reveal">
+    <div class="panelpick" id="routepick" role="tablist" aria-label="what did you just do"></div>
+    <div class="stage" id="routestage"></div>
+  </div>
+  <div class="sec-head reveal" style="margin-top:40px;margin-bottom:20px">
+    <div class="eyebrow">Five conventions (+ two)</div>
+    <h2 style="font-size:clamp(20px,2.6vw,26px)">Generalized from a system a real lab already runs.</h2>
+  </div>
+  <div class="grid3 reveal">
+    <div class="card"><div class="n">01 · files</div><h3>KB structure</h3><p>Three layers — <b>Sources</b> (raw, immutable) · <b>Wiki</b> (agent-owned synthesis) · <b>Output</b> (private strategy) — and one filing rule so evidence and interpretation never blur.</p></div>
+    <div class="card"><div class="n">02 · names</div><h3>Naming & notes</h3><p>A trailing-<span class="mono">YYYY-MM-DD</span> convention so filename-sort = sense, plus one YAML note template every file starts from.</p></div>
+    <div class="card"><div class="n">03 · docs</div><h3>Documentation & handoffs</h3><p>The routing map above: <span class="mono">START_HERE</span> daily-brief (🔴🟡🟢✅), <span class="mono">_Log</span>, the <span class="mono">_handoff-log</span> board, <span class="mono">MEMORY</span>.</p></div>
+    <div class="card"><div class="n">04 · figures</div><h3>Figures & findings</h3><p><b>Restyle, never reinvent; verify by looking.</b> Scripts read real data (no hard-coded numbers), and <span class="mono">FIGURE_FINDINGS.md</span> logs what each panel shows. Captions are <b>claims, not labels.</b></p></div>
+    <div class="card"><div class="n">05 · storyline</div><h3>Storyline & manuscript</h3><p>Messages first, figures follow. A per-figure storyline doc where every panel earns a <b>“📖 Beat”</b> in the argument, kept in sync with the prose.</p></div>
+    <div class="card"><div class="n">+ · people</div><h3>Mentorship & harness</h3><p>The mentee↔mentor check-in loop (next section) + the Claude Science / Claude Code coordination rule: <b>one harness owns a working-dir at a time.</b></p></div>
   </div>
 </div></section>
 
@@ -322,15 +350,16 @@ footer .wrap{display:flex; justify-content:space-between; gap:20px; flex-wrap:wr
 <!-- ===================== collaboration (interactive) ===================== -->
 <section id="collab"><div class="wrap">
   <div class="sec-head reveal">
-    <div class="eyebrow">The hero · multi-user</div>
-    <h2>One KB. Peers and undergrads. No collisions.</h2>
-    <p>The roster in one profile carries each member's role. Two collaboration modes fall out automatically —
-      and it's not aspirational: it's the coordination system a real lab already runs, made installable.</p>
+    <div class="eyebrow">Multi-user · already in production</div>
+    <h2>Peers work as equals. Mentees get scaffolded — and report up.</h2>
+    <p>The roster assigns each member a role, and the collaboration shape follows. The real engine is a
+      <b>paired-by-date check-in loop</b>: a neutral <span class="mono">-update</span> (what shipped) kept
+      separate from a structured <span class="mono">-feedback</span> (the mentor's voice). Flip the mode.</p>
   </div>
   <div class="modewrap reveal">
     <div class="seg" role="tablist" aria-label="collaboration mode">
-      <button role="tab" id="modeA" aria-selected="true">Mode A · Peers</button>
-      <button role="tab" id="modeB" aria-selected="false">Mode B · Mentor / trainee</button>
+      <button role="tab" id="modeA" aria-selected="true">Peers (maintainers)</button>
+      <button role="tab" id="modeB" aria-selected="false">Mentor ↔ mentee</button>
     </div>
     <div class="modebody">
       <div id="modeText"></div>
@@ -360,9 +389,11 @@ footer .wrap{display:flex; justify-content:space-between; gap:20px; flex-wrap:wr
 <!-- ===================== pipeline (interactive) ===================== -->
 <section id="pipeline"><div class="wrap">
   <div class="sec-head reveal">
-    <div class="eyebrow">The command suite</div>
+    <div class="eyebrow">The command suite · 14 skills</div>
     <h2>Cheap-structural first, expensive-semantic second — human-gated.</h2>
-    <p>Eight re-runnable slash commands, staged by cost. Click one.</p>
+    <p>The onboarding pipeline is staged by cost so an expensive crawl never runs before a human
+      approves it — plus framework skills (<span class="mono">/lab-figure · /lab-findings ·
+      /lab-storyline · /lab-feedback</span>) that apply the conventions. Click a pipeline step.</p>
   </div>
   <div class="reveal">
     <div class="steps" id="steps"></div>
@@ -466,6 +497,41 @@ footer .wrap{display:flex; justify-content:space-between; gap:20px; flex-wrap:wr
   range.addEventListener('input',render); render();
 })();
 
+/* ---------- framework routing map ---------- */
+(function(){
+  var ROUTES=[
+    {q:"Finished something / hit a blocker today", to:"START_HERE.md", tag:"daily brief",
+     why:"The rolling daily inbox everyone opens first — dated, with a 🔴🟡🟢✅ status. Links + one-liners only; the detail lives in the actual file."},
+    {q:"Need a teammate (or the other harness) to pick something up", to:"_handoff-log.md", tag:"coordination",
+     why:"The live board: raise it under 🤝 HANDOFFS, and claim any shared file under 🔒 ACTIVE EDITS first — so two people never clobber the same file."},
+    {q:"Did an ingest / a significant write", to:"_Log.md", tag:"audit timeline",
+     why:"Append-only and chronological — the record a new session greps to catch up. Don't log trivial reads."},
+    {q:"Made a figure", to:"FIGURE_FINDINGS.md", tag:"figures",
+     why:"Log what the panel SHOWS — method · data · key numbers · cross-references — next to the script, not just that it exists."},
+    {q:"Wrote a how-to / an SOP / synthesis", to:"Wiki/Methodology/", tag:"synthesis",
+     why:"Agent-written understanding lives in Wiki/ (Methodology = technical, Concepts = analysis). Raw material stays in Sources/. One filing rule settles it."},
+    {q:"Pulled in a paper / transcript / data dump", to:"Sources/", tag:"raw · immutable",
+     why:"Raw evidence is never edited. Every Wiki/ claim links back to the Sources/ file it came from — provenance by construction."},
+    {q:"A mentee finished a round of work", to:"<date>_<person>-update.md  +  -feedback.md", tag:"mentorship",
+     why:"A neutral digest of what shipped, paired with the mentor's structured feedback — same date, kept separate so the record and the evaluation never blur."},
+    {q:"Learned a durable fact worth recalling", to:"MEMORY.md topic note", tag:"memory",
+     why:"Survives a context reset: a one-line index plus a topic note holding the fact and its why."}
+  ];
+  var pick=document.getElementById('routepick'), stage=document.getElementById('routestage');
+  if(pick&&stage){
+    pick.innerHTML=ROUTES.map(function(r,i){return '<button class="pk" role="tab" data-i="'+i+'" aria-selected="'+(i===0)+'"><div><div class="pt">'+r.q+'</div></div></button>';}).join('');
+    var paintR=function(i){
+      var r=ROUTES[i];
+      stage.innerHTML='<div class="verdict"><span class="badge" style="color:#fff;background:var(--accent)">→ GOES TO</span><span class="kv">'+r.tag+'</span></div>'+
+        '<h3 style="font-family:var(--mono);font-size:18px;color:var(--accent-ink);word-break:break-word;line-height:1.35">'+r.to+'</h3>'+
+        '<p style="color:var(--muted);margin-top:12px;font-size:15px">'+r.why+'</p>';
+      Array.prototype.forEach.call(pick.children,function(b,bi){b.setAttribute('aria-selected', bi===i);});
+    };
+    pick.addEventListener('click',function(e){var b=e.target.closest('.pk'); if(b)paintR(+b.dataset.i);});
+    paintR(0);
+  }
+})();
+
 /* ---------- collaboration mode ---------- */
 (function(){
   var A=document.getElementById('modeA'), B=document.getElementById('modeB'),
@@ -474,15 +540,15 @@ footer .wrap{display:flex; justify-content:space-between; gap:20px; flex-wrap:wr
     A:{rows:[
         ["Symmetric","everyone reads the shared KB, works a lane, writes back <b>additively</b>"],
         ["Per-user paths","<b>resolve(key)</b> picks the right storage for whoever runs it — the #1 multi-user fix"],
-        ["Surfaces","lane + registry + shared findings — assumes context, light touch"],
-        ["Sync","claim a lane, dated <b>Sources/</b> notes, branch-per-lane with a human git trailer"]],
+        ["Reviewed as an equal","a maintainer's commits are peer contributions — no scaffolding, no digest"],
+        ["No collisions","claim a lane on <b>LANES.md</b>, dated <b>Sources/</b> notes, one branch per lane"]],
       lanes:[["@BN","figure slice","CC","active"],["@FG","flu-index","CS","active"],["@JWH","gaps audit","—","watching"]]},
     B:{rows:[
-        ["Asymmetric","a PI/mentor oversees students who need more scaffolding"],
-        ["Surfaces","<b>+</b> project backgrounder, start-here 3 files, explicit next-steps, feedback docs"],
-        ["Digest","one neutral digest agent per student — what moved since last check-in"],
-        ["Feedback","structured, dated mentor feedback, routed to the trainee — kept separate from the digest"]],
-      lanes:[["@FG (trainee)","flu-index","CS","active"],["@AL (trainee)","tcell-survey","CC","review"],["@BN (mentor)","feedback","—","watching"]]}
+        ["The loop","each round = a neutral <b>-update</b> + a structured <b>-feedback</b>, same date, kept separate"],
+        ["Neutral digest","one agent per mentee: what shipped (paths, line counts) + the <b>files to spot-check</b>"],
+        ["Structured feedback","the mentor's items in a fixed skeleton; <b>[Mentor]</b> tags = verbatim quotes only"],
+        ["Reports up","writeup → update → feedback → a condensed line in the team-meeting note"]],
+      lanes:[["@FG","round 6","mentee","🟢 captured"],["@AL","round 4","mentee","🟡 needs feedback"],["@BN","runs check-ins","mentor","✅ closed"]]}
   };
   function paint(k){
     var d=DATA[k];
